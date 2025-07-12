@@ -540,12 +540,12 @@ nav a:hover {
     box-sizing: border-box;
   }
   .preview-proyecto-wrapper {
-    min-height: 110px;
+    min-height: 220px;
   }
   .preview-proyecto,
   .skeleton-loader {
-    height: 110px !important;
-    min-height: 110px !important;
+    height: 220px !important;
+    min-height: 220px !important;
     border-radius: 0.8em !important;
   }
   .proyecto-desc {
@@ -695,11 +695,11 @@ footer.minimal span,
     gap: 0.7rem;
   }
   .preview-proyecto-wrapper {
-    min-height: 110px;
+    min-height: 220px;
   }
   .preview-proyecto,
   .skeleton-loader {
-    height: 110px !important;
-    min-height: 110px !important;
+    height: 220px !important;
+    min-height: 220px !important;
   }
 }
