@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FerCueA | Portfolio Minimal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="main-header minimal header-center header-nav-flex">
+      <div class="logo">FerCueA</div>
+      <nav>
+        <a
+          href="https://www.instagram.com/aleixofdezcuevas/"
+          target="_blank"
+          class="btn-minimal-hero nav-btn-minimal"
+          >Instagram</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero minimal">
+        <div class="hero-content-minimal">
+          <h1>Haz que tu proyecto destaque</h1>
+          <p class="hero-desc">
+            Desarrollo web, marca y redes sociales con un enfoque minimalista y
+            profesional.<br />
+            Soluciones digitales a tu medida.
+          </p>
+          <a href="mailto:FerCueA90@protonmail.com" class="btn-minimal-hero">
+            Contáctame
+            <span class="arrow-icon" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="proyectos minimal" id="proyectos">
+        <h2>Proyectos</h2>
+        <div class="proyectos-grid minimal">
+          <div class="proyecto-card minimal">
+            <div class="proyecto-header">
+              <span class="proyecto-titulo">AlvaroG</span>
+            </div>
+            <div class="tecnologias-texto">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+            </div>
+            <div class="preview-proyecto-wrapper">
+              <div class="skeleton-loader"></div>
+              <iframe
+                src="https://alvarog.netlify.app/"
+                title="Previsualización AlvaroG"
+                class="preview-proyecto"
+                loading="lazy"
+                style="
+                  opacity: 0;
+                  transition: opacity 0.5s;
+                  border: none;
+                  width: 100%;
+                  height: 320px;
+                  border-radius: 1.2em;
+                "
+                onload="this.style.opacity=1;this.previousElementSibling.style.display='none';"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+              ></iframe>
+            </div>
+            <p class="proyecto-desc">
+              Página web minimalista para un osteópata que busca presencia
+              online. Incluye presentación de servicios, precios y contacto de
+              forma clara y profesional.
+            </p>
+            <a
+              href="https://alvarog.netlify.app/"
+              class="btn-minimal-link"
+              target="_blank"
+              >Ver proyecto</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="precios minimal" id="precios">
+        <h2>Precios</h2>
+        <div class="precios-grid minimal">
+          <div class="precio-card minimal">
+            <h3>Página web básica</h3>
+            <div class="precio">100€</div>
+          </div>
+          <div class="precio-card minimal">
+            <h3>Web + servidor y gestión</h3>
+            <div class="precio">220€</div>
+          </div>
+          <div class="precio-card minimal">
+            <h3>Redes sociales, logotipo y marca</h3>
+            <div class="precio">50€</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="minimal">
+      <div>
+        © 2025 FerCueA ·
+        <a href="https://www.instagram.com/aleixofdezcuevas/" target="_blank"
+          >Instagram</a
+        >
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
