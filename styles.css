@@ -475,6 +475,71 @@ nav a:hover {
   margin-right: 0.1em;
 }
 
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  margin-top: 0.7em;
+}
+.footer-icon-link {
+  color: var(--primario);
+  font-size: 1.45em;
+  opacity: 0.82;
+  transition: color 0.18s, opacity 0.18s, transform 0.18s;
+}
+.footer-icon-link:hover {
+  color: var(--secundario);
+  opacity: 1;
+  transform: translateY(-2px) scale(1.12);
+}
+
+.visually-hidden-focusable {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.visually-hidden-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  left: auto;
+  background: #fffbe7;
+  color: var(--primario);
+  outline: 2px solid var(--secundario);
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  z-index: 1000;
+}
+
+.btn-minimal-link[aria-label],
+.btn-minimal-hero[aria-label] {
+  outline: none;
+}
+
+.btn-minimal-link:focus,
+.btn-minimal-hero:focus {
+  outline: 2px solid var(--secundario);
+  outline-offset: 2px;
+}
+
+.icono-min[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+.fadein-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fadein-on-scroll.visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (max-width: 900px) {
   .proyectos-grid,
   .precios-grid {
