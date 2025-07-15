@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", functi}
-
-// ...existing code...nContacto = document.getElementById("btn-contacto");
+document.addEventListener("DOMContentLoaded", function () {
+  const btnContacto = document.getElementById("btn-contacto");
   const dialogo = document.getElementById("dialogo-contacto");
   const cerrar = document.getElementById("cerrar-dialogo");
   if (btnContacto && dialogo && cerrar) {
@@ -33,65 +32,63 @@ document.addEventListener("DOMContentLoaded", functi}
     observer.observe(el);
   });
 
-  // Sistema de tracking privado mejorado
-  initPrivateTracking();
+  // Sistema de tracking simplificado
+  initSimpleTracking();
 });
 
-// Sistema de analytics mejorado (Umami + CountAPI backup)
-async function initPrivateTracking() {
+// Sistema de tracking local simplificado
+function initSimpleTracking() {
   try {
-    // CountAPI como backup silencioso
-    const namespace = 'aleixo-portfolio-2025';
-    const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/visits`);
-    const data = await response.json();
-    
-    // Log solo para debug (comentar en producción)
-    // console.log(`Backup counter: ${data.value}`);
-    
-  } catch (error) {
-    console.error('Error en tracking backup:', error);
-  }
-}
+    // Tracking local básico
+    const visitData = {
+      timestamp: new Date().toISOString(),
+      url: window.location.href,
+      referrer: document.referrer || "Direct",
+      userAgent: navigator.userAgent.substring(0, 50), // Solo primeros 50 chars
+    };
 
-// Función para enviar datos a un webhook (opcional)
-async function sendToWebhook(data) {
-  try {
-    await fetch('TU_WEBHOOK_URL', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    });
+    // Guardar en localStorage
+    const visits = JSON.parse(localStorage.getItem("portfolio-visits") || "[]");
+    visits.push(visitData);
+
+    // Mantener solo las últimas 100 visitas
+    if (visits.length > 100) {
+      visits.splice(0, visits.length - 100);
+    }
+
+    localStorage.setItem("portfolio-visits", JSON.stringify(visits));
   } catch (error) {
-    console.error('Error enviando a webhook:', error);
+    console.error("Error en tracking local:", error);
   }
 }
 
 // Panel de admin mejorado (Ctrl+Shift+A)
-document.addEventListener('keydown', function(e) {
-  if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+document.addEventListener("keydown", function (e) {
+  if (e.ctrlKey && e.shiftKey && e.key === "A") {
     showAdminPanel();
   }
 });
 
-async function showAdminPanel() {
+function showAdminPanel() {
   try {
-    const response = await fetch('https://api.countapi.xyz/get/aleixo-portfolio-2025/visits');
-    const data = await response.json();
-    
-    const info = `📊 Analytics Portfolio Aleixo
-    
-🔢 Contador backup: ${data.value}
-📅 Fecha: ${new Date().toLocaleString()}
-🌐 URL: ${window.location.href}
+    const visits = JSON.parse(localStorage.getItem("portfolio-visits") || "[]");
+    const totalVisits = visits.length;
+    const lastVisit =
+      visits.length > 0
+        ? new Date(visits[visits.length - 1].timestamp).toLocaleString()
+        : "N/A";
 
-💡 Tip: Ve a https://cloud.umami.is para ver estadísticas completas de Umami`;
+    const info = `📊 Analytics Portfolio Aleixo (Local)
     
+🔢 Total de visitas: ${totalVisits}
+📅 Última visita: ${lastVisit}
+🌐 URL actual: ${window.location.href}
+� Sesión actual: ${new Date().toLocaleString()}
+
+💡 Datos guardados localmente en tu navegador`;
+
     alert(info);
   } catch (error) {
-    alert('❌ Error al cargar estadísticas backup');
+    alert("❌ Error al cargar estadísticas locales");
   }
 }
-
-// ...existing code...
