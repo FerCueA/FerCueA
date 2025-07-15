@@ -32,9 +32,72 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(el);
   });
 
-  // Sistema de tracking simplificado
-  initSimpleTracking();
+  // Sistema de tracking mejorado con Umami + fallback local
+  initAnalytics();
 });
+
+// Sistema de analytics con múltiples opciones
+function initAnalytics() {
+  // Intentar cargar Umami Analytics
+  loadUmamiAnalytics();
+
+  // Siempre ejecutar tracking local como backup
+  initSimpleTracking();
+}
+
+// Cargar Umami con manejo de errores
+function loadUmamiAnalytics() {
+  try {
+    const script = document.createElement("script");
+    script.defer = true;
+    script.src = "https://cloud.umami.is/script.js";
+    script.setAttribute(
+      "data-website-id",
+      "1e5617ab-8abc-4d70-8ebd-c8a44efdc9cf"
+    );
+
+    script.onload = function () {
+      console.log("✅ Umami Analytics cargado correctamente");
+    };
+
+    script.onerror = function () {
+      console.log("⚠️ Umami no disponible, usando solo tracking local");
+      // Intentar CDN alternativo
+      loadUmamiAlternative();
+    };
+
+    document.head.appendChild(script);
+  } catch (error) {
+    console.log("⚠️ Error cargando Umami:", error);
+  }
+}
+
+// CDN alternativo para Umami
+function loadUmamiAlternative() {
+  try {
+    const script = document.createElement("script");
+    script.defer = true;
+    script.src = "https://umami.is/script.js";
+    script.setAttribute(
+      "data-website-id",
+      "1e5617ab-8abc-4d70-8ebd-c8a44efdc9cf"
+    );
+
+    script.onload = function () {
+      console.log("✅ Umami Analytics (CDN alternativo) cargado correctamente");
+    };
+
+    script.onerror = function () {
+      console.log(
+        "⚠️ Umami CDN alternativo también falló, solo tracking local activo"
+      );
+    };
+
+    document.head.appendChild(script);
+  } catch (error) {
+    console.log("⚠️ Error con CDN alternativo de Umami:", error);
+  }
+}
 
 // Sistema de tracking local simplificado
 function initSimpleTracking() {
@@ -57,6 +120,9 @@ function initSimpleTracking() {
     }
 
     localStorage.setItem("portfolio-visits", JSON.stringify(visits));
+
+    // Debug: mostrar que funciona
+    console.log(`✅ Tracking local: Visita #${visits.length} registrada`);
   } catch (error) {
     console.error("Error en tracking local:", error);
   }
@@ -78,14 +144,20 @@ function showAdminPanel() {
         ? new Date(visits[visits.length - 1].timestamp).toLocaleString()
         : "N/A";
 
-    const info = `📊 Analytics Portfolio Aleixo (Local)
-    
-🔢 Total de visitas: ${totalVisits}
+    // Verificar si Umami está cargado
+    const umamiStatus = window.umami ? "✅ Activo" : "❌ No disponible";
+
+    const info = `📊 Analytics Portfolio Aleixo
+
+🔢 Visitas locales: ${totalVisits}
 📅 Última visita: ${lastVisit}
 🌐 URL actual: ${window.location.href}
-� Sesión actual: ${new Date().toLocaleString()}
+📱 Sesión actual: ${new Date().toLocaleString()}
 
-💡 Datos guardados localmente en tu navegador`;
+📈 Umami Analytics: ${umamiStatus}
+💾 Tracking local: ✅ Activo
+
+💡 Si Umami está activo, ve a https://cloud.umami.is para estadísticas completas`;
 
     alert(info);
   } catch (error) {
