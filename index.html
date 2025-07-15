@@ -23,6 +23,13 @@
     <meta property="og:url" content="https://tudominio.com" />
     <link rel="icon" type="image/png" href="/img/favicon.png" />
     <!-- SEO y metadatos mejorados -->
+
+    <!-- Umami Analytics - Gratuito y privado -->
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="1e5617ab-8abc-4d70-8ebd-c8a44efdc9cf"
+    ></script>
   </head>
   <body>
     <header class="main-header minimal header-center header-nav-flex">
@@ -58,8 +65,7 @@
           </a>
           <div
             id="dialogo-contacto"
-            class="dialogo-contacto"
-            style="display: none"
+            class="dialogo-contacto dialogo-contacto-hidden"
           >
             <div class="dialogo-contacto-contenido">
               <button class="cerrar-dialogo" id="cerrar-dialogo">×</button>
@@ -68,20 +74,15 @@
                 href="https://wa.me/34628230716"
                 target="_blank"
                 class="btn-minimal-link"
-                style="margin-bottom: 0.7em; display: block"
                 >WhatsApp</a
               >
               <a
                 href="https://www.instagram.com/aleixofdezcuevas/"
                 target="_blank"
                 class="btn-minimal-link"
-                style="margin-bottom: 0.7em; display: block"
                 >Instagram</a
               >
-              <a
-                href="mailto:fercuea90@protonmail.com"
-                class="btn-minimal-link"
-                style="display: block"
+              <a href="mailto:fercuea90@protonmail.com" class="btn-minimal-link"
                 >Correo</a
               >
             </div>
@@ -107,18 +108,8 @@
               <iframe
                 src="https://alvarog.netlify.app/"
                 title="Previsualización AlvaroG"
-                class="preview-proyecto"
+                class="preview-proyecto preview-proyecto-iframe"
                 loading="lazy"
-                style="
-                  opacity: 0;
-                  transition: opacity 0.5s;
-                  border: none;
-                  width: 100%;
-                  height: 320px;
-                  border-radius: 1.2em;
-                  pointer-events: none; /* No interactuable */
-                  touch-action: none; /* No interactuable en móvil */
-                "
                 onload="this.style.opacity=1;this.previousElementSibling.style.display='none';"
                 sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
                 tabindex="-1"
@@ -142,16 +133,8 @@
       </section>
 
       <section class="servicios minimal" id="servicios">
-        <h2
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5em;
-            text-align: center;
-          "
-        >
-          <i class="bi bi-briefcase icono-min" style="font-size: 1.3em"></i>
+        <h2 class="section-title">
+          <i class="bi bi-briefcase icono-min"></i>
           Servicios
         </h2>
         <div class="precios-grid minimal">
@@ -209,16 +192,8 @@
       </section>
 
       <section class="certificados minimal fadein-on-scroll" id="certificados">
-        <h2
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5em;
-            text-align: center;
-          "
-        >
-          <i class="bi bi-award icono-min" style="font-size: 1.3em"></i>
+        <h2 class="section-title">
+          <i class="bi bi-award icono-min"></i>
           Certificados & Cursos
         </h2>
         <div class="certificados-grid">
