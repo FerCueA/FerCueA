@@ -12,10 +12,25 @@
   --gradiente-principal: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%);
   --gradiente-suave: linear-gradient(135deg, #ede9fe 0%, #f8fafc 100%);
 }
+
+/* Tema oscuro */
+[data-theme="dark"] {
+  --primario: #818cf8; /* azul-violeta suave */
+  --secundario: #a5b4fc; /* azul-violeta más claro */
+  --acento: #34d399; /* verde esmeralda */
+  --violeta-suave: #1f2937; /* gris azulado oscuro */
+  --gris: #111827; /* gris muy oscuro */
+  --negro: #f3f4f6; /* texto claro */
+  --blanco: #0d1117; /* fondo principal oscuro (como GitHub) */
+  --gradiente-principal: linear-gradient(135deg, #818cf8 0%, #34d399 50%, #60a5fa 100%);
+  --gradiente-suave: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
 body {
   font-family: "Open Sans", Arial, sans-serif;
-  background: var(--blanco);
-  color: var(--negro);
+  background: var(--blanco) !important;
+  color: var(--negro) !important;
+  transition: background 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 .logo,
 h1,
@@ -115,23 +130,16 @@ footer.minimal span {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap");
+
+html {
+  background: var(--blanco) !important;
+  transition: background 0.3s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-:root {
-  --primario: #2b3648; /* azul grisáceo elegante */
-  --gris: #f7f8fa;
-  --negro: #181c2f;
-  --blanco: #fff;
-}
-
-body {
-  font-family: "Roboto", Arial, sans-serif;
-  background: var(--blanco);
-  color: var(--negro);
 }
 
 .main-header {
@@ -1005,6 +1013,304 @@ footer.minimal span,
     padding: 0.8rem 0.6rem;
     font-size: 0.85rem;
   }
+}
+
+/* Toggle de modo oscuro/claro */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--violeta-suave);
+  border: 2px solid var(--secundario);
+  border-radius: 50px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+}
+
+.theme-toggle:hover {
+  background: var(--secundario);
+  color: var(--blanco);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+}
+
+.theme-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover i {
+  transform: rotate(180deg);
+}
+
+/* Adaptaciones para modo oscuro */
+[data-theme="dark"] .precio-popular {
+  background: linear-gradient(145deg, var(--violeta-suave), var(--gris));
+  border-color: var(--acento);
+}
+
+[data-theme="dark"] .dialogo-contacto-contenido {
+  background: var(--violeta-suave);
+  border-color: var(--primario);
+  color: var(--negro);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .btn-minimal-hero,
+[data-theme="dark"] .btn-minimal-link {
+  background: var(--gradiente-principal);
+  color: var(--blanco);
+  border-color: var(--primario);
+}
+
+[data-theme="dark"] .btn-minimal-hero:hover,
+[data-theme="dark"] .btn-minimal-link:hover {
+  background: var(--primario);
+  color: var(--blanco);
+  box-shadow: 0 8px 30px rgba(129, 140, 248, 0.4);
+}
+
+/* Mejoras adicionales para modo oscuro */
+[data-theme="dark"] .proyecto-card,
+[data-theme="dark"] .precio-card:not(.precio-popular),
+[data-theme="dark"] .certificado-card {
+  background: var(--violeta-suave);
+  border-color: var(--primario);
+  color: var(--negro);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .proyecto-card:hover,
+[data-theme="dark"] .precio-card:hover,
+[data-theme="dark"] .certificado-card:hover {
+  box-shadow: 0 12px 40px rgba(129, 140, 248, 0.2);
+}
+
+[data-theme="dark"] .proyecto-desc,
+[data-theme="dark"] .precio-desc,
+[data-theme="dark"] .certificado-desc {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .preview-proyecto-static {
+  background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  color: var(--negro);
+}
+
+[data-theme="dark"] .tecnologias-texto span {
+  background: linear-gradient(145deg, var(--acento), #10b981);
+  color: var(--blanco);
+}
+
+[data-theme="dark"] .servicio-btn {
+  background: var(--violeta-suave);
+  border-color: var(--primario);
+  color: var(--negro);
+}
+
+[data-theme="dark"] .servicio-btn:hover {
+  background: var(--primario);
+  color: var(--blanco);
+  box-shadow: 0 4px 15px rgba(129, 140, 248, 0.3);
+}
+
+[data-theme="dark"] .servicio-btn.selected {
+  background: var(--gradiente-principal);
+  color: var(--blanco);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: var(--violeta-suave);
+  border-color: var(--primario);
+  color: var(--negro);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: var(--primario);
+  color: var(--blanco);
+}
+
+[data-theme="dark"] .footer-destacado {
+  background: var(--gris);
+  border-top-color: var(--primario);
+}
+
+[data-theme="dark"] .footer-icon-link {
+  background: linear-gradient(145deg, var(--violeta-suave), var(--gris));
+  color: var(--primario);
+}
+
+[data-theme="dark"] .footer-icon-link:hover {
+  color: var(--blanco);
+  background: var(--gradiente-principal);
+}
+
+[data-theme="dark"] .cerrar-dialogo {
+  color: var(--negro);
+}
+
+[data-theme="dark"] .cerrar-dialogo:hover {
+  color: var(--primario);
+}
+
+[data-theme="dark"] .main-header {
+  background: var(--blanco);
+  border-bottom-color: var(--violeta-suave);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .hero.minimal {
+  background: var(--gradiente-suave);
+}
+
+[data-theme="dark"] .precio-popular::after {
+  background: var(--gradiente-principal);
+  color: var(--blanco);
+}
+
+/* Arreglar textos que no se ven en modo oscuro */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+  color: var(--negro) !important;
+}
+
+[data-theme="dark"] .hero-desc {
+  color: #d1d5db !important;
+}
+
+[data-theme="dark"] .hero-subtitle {
+  color: var(--secundario) !important;
+}
+
+[data-theme="dark"] .logo {
+  color: var(--primario) !important;
+}
+
+[data-theme="dark"] .section-title {
+  color: var(--negro) !important;
+}
+
+[data-theme="dark"] .section-title .icono-min {
+  color: var(--primario) !important;
+}
+
+[data-theme="dark"] .desc-highlight {
+  color: var(--acento) !important;
+}
+
+[data-theme="dark"] .proyecto-desc small {
+  color: var(--secundario) !important;
+}
+
+[data-theme="dark"] .dialogo-contacto {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .dialogo-contacto-contenido h3,
+[data-theme="dark"] .dialogo-contacto-contenido h4 {
+  color: var(--negro) !important;
+}
+
+/* Ajustes responsive para el toggle */
+@media (max-width: 600px) {
+  .theme-toggle {
+    top: 15px;
+    right: 15px;
+    padding: 0.4rem;
+    font-size: 1rem;
+  }
+}
+
+/* Call-to-Action flotante */
+.cta-flotante {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--gradiente-principal);
+  color: var(--blanco);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  animation: pulse-cta 2s ease-in-out infinite;
+}
+
+.cta-flotante.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cta-flotante:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+  animation: none;
+}
+
+.cta-flotante .cta-icon {
+  font-size: 1.2rem;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes pulse-cta {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6), 0 0 0 10px rgba(99, 102, 241, 0.1);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Responsive CTA */
+@media (max-width: 600px) {
+  .cta-flotante {
+    bottom: 20px;
+    right: 20px;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Clase para lectores de pantalla */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 .section-title {
