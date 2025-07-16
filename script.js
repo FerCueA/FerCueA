@@ -483,7 +483,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // ===== FUNCIONES PARA BOTONES FLOTANTES =====
   function hideFloatingButtons() {
     const floatingElements = [
-      document.getElementById('theme-toggle'),
       document.getElementById('scroll-to-top'),
       document.getElementById('cta-flotante')
     ];
@@ -500,7 +499,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
   function showFloatingButtons() {
     const floatingElements = [
-      document.getElementById('theme-toggle'),
       document.getElementById('scroll-to-top'),
       document.getElementById('cta-flotante')
     ];

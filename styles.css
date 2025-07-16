@@ -151,7 +151,7 @@ html {
   border-bottom: 1px solid #eaeaea;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 50;
   transition: box-shadow 0.2s;
   box-shadow: 0 2px 8px rgba(24, 28, 47, 0.03);
 }
@@ -807,15 +807,29 @@ footer.minimal span,
 
 .dialogo-contacto {
   position: fixed;
-  top: 0;
+  top: 25vh;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(24, 28, 47, 0.32);
+  background: rgba(24, 28, 47, 0.8);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 10001;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+
+/* Overlay que cubre toda la pantalla desde arriba */
+.dialogo-contacto::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25vh;
+  background: rgba(24, 28, 47, 0.8);
+  z-index: -1;
 }
 
 .dialogo-contacto-contenido {
@@ -823,10 +837,14 @@ footer.minimal span,
   border-radius: 16px;
   padding: 2.2em 1.5em 1.5em 1.5em;
   box-shadow: 0 8px 32px rgba(62, 207, 142, 0.13);
-  min-width: 240px;
-  max-width: 90vw;
+  min-width: 300px;
+  max-width: 500px;
+  width: 100%;
   text-align: center;
   position: relative;
+  max-height: calc(75vh - 4rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .cerrar-dialogo {
@@ -1036,7 +1054,7 @@ footer.minimal span,
   padding: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 1001;
+  z-index: 10002;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -1229,8 +1247,24 @@ footer.minimal span,
   color: var(--negro) !important;
 }
 
-/* Ajustes responsive para el toggle */
+/* Ajustes responsive para el nuevo diseño del diálogo */
 @media (max-width: 600px) {
+  .dialogo-contacto {
+    top: 20vh;
+    padding: 1rem 0.5rem;
+  }
+  
+  .dialogo-contacto::before {
+    height: 20vh;
+  }
+  
+  .dialogo-contacto-contenido {
+    min-width: 280px;
+    max-width: 95vw;
+    max-height: calc(80vh - 2rem);
+    padding: 1.8em 1.2em 1.2em 1.2em;
+  }
+  
   .theme-toggle {
     top: 15px;
     right: 15px;
