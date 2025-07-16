@@ -436,6 +436,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // Bloquear scroll del body
       document.body.classList.add('modal-open');
       
+      // Ocultar botones flotantes
+      hideFloatingButtons();
+      
       // Reset selección y ocultar métodos al abrir
       servicioSeleccionado = null;
       if (contactoMetodos) contactoMetodos.style.display = "none";
@@ -470,8 +473,46 @@ document.addEventListener("DOMContentLoaded", function () {
       // Desbloquear scroll del body
       document.body.classList.remove('modal-open');
       
+      // Mostrar botones flotantes
+      showFloatingButtons();
+      
       if (btnContacto) btnContacto.focus(); // Devolver focus
     }
+  }
+
+  // ===== FUNCIONES PARA BOTONES FLOTANTES =====
+  function hideFloatingButtons() {
+    const floatingElements = [
+      document.getElementById('theme-toggle'),
+      document.getElementById('scroll-to-top'),
+      document.getElementById('cta-flotante')
+    ];
+    
+    floatingElements.forEach(element => {
+      if (element) {
+        element.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        element.style.opacity = '0';
+        element.style.transform = 'scale(0.8)';
+        element.style.pointerEvents = 'none';
+      }
+    });
+  }
+  
+  function showFloatingButtons() {
+    const floatingElements = [
+      document.getElementById('theme-toggle'),
+      document.getElementById('scroll-to-top'),
+      document.getElementById('cta-flotante')
+    ];
+    
+    floatingElements.forEach(element => {
+      if (element) {
+        element.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        element.style.opacity = '1';
+        element.style.transform = 'scale(1)';
+        element.style.pointerEvents = 'auto';
+      }
+    });
   }
 
   // ===== DETECCIÓN DE DISPOSITIVO =====

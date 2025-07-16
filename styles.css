@@ -182,11 +182,6 @@ html {
   transition: none;
   cursor: default;
 }
-.logo:hover {
-  letter-spacing: 2.5px;
-  color: var(--primario);
-  font-size: 3.2rem;
-}
 
 nav a {
   color: var(--negro);
@@ -820,7 +815,7 @@ footer.minimal span,
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10001;
 }
 
 .dialogo-contacto-contenido {
