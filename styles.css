@@ -2,11 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Open+Sans:wght@400;600&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 :root {
-  --primario: #22223b; /* azul grisáceo oscuro */
-  --secundario: #4a4e69; /* gris azulado */
-  --gris: #f7f8fa;
-  --negro: #181c2f;
-  --blanco: #fff;
+  --primario: #6366f1; /* violeta vibrante */
+  --secundario: #8b5cf6; /* violeta claro */
+  --acento: #f59e0b; /* naranja dorado como complementario */
+  --violeta-suave: #ede9fe; /* violeta muy claro para fondos */
+  --gris: #f8fafc;
+  --negro: #1e1b4b; /* azul muy oscuro con tinte violeta */
+  --blanco: #ffffff;
+  --gradiente-principal: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%);
+  --gradiente-suave: linear-gradient(135deg, #ede9fe 0%, #f8fafc 100%);
 }
 body {
   font-family: "Open Sans", Arial, sans-serif;
@@ -47,9 +51,39 @@ footer.minimal span {
   color: var(--primario);
 }
 .tecnologias-texto span {
-  background: #fff3e0;
-  color: var(--primario);
+  background: linear-gradient(145deg, var(--acento), #fbbf24);
+  color: var(--blanco);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+  position: relative;
+  overflow: hidden;
 }
+
+.tecnologias-texto span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.tecnologias-texto span:hover::before {
+  left: 100%;
+}
+
+.tecnologias-texto span:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
 .precio {
   color: var(--secundario);
 }
@@ -204,11 +238,13 @@ nav a:hover {
 }
 
 .hero-desc {
-  font-size: 1.18rem;
+  font-size: 1.1rem;
   color: #444;
-  margin-bottom: 2.5rem;
+  margin: 1.5rem 0 2rem 0;
   text-align: center;
   line-height: 1.6;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
 }
 
 .btn-minimal-hero {
@@ -229,6 +265,8 @@ nav a:hover {
   cursor: pointer;
   min-width: 180px;
   min-height: 48px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
 }
 
 .btn-minimal-hero:hover {
@@ -908,4 +946,502 @@ footer.minimal span,
 
 .preview-proyecto-static p {
   margin: 0;
+}
+
+/* Mejoras visuales para dar más vida al portfolio */
+
+/* Animación sutil de entrada para elementos */
+.hero-content-minimal {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effects mejorados para las cards */
+.proyecto-card, .precio-card, .certificado-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto-card:hover, .precio-card:hover, .certificado-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(34, 34, 59, 0.15);
+}
+
+/* Mejora para la descripción del proyecto */
+.desc-highlight {
+  font-weight: 600;
+  color: var(--primario);
+  font-size: 1.05em;
+}
+
+.proyecto-desc small {
+  color: var(--secundario);
+  font-style: italic;
+  font-size: 0.85em;
+}
+
+/* Gradiente sutil en el hero */
+.hero.minimal {
+  background: var(--gradiente-suave);
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero.minimal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.hero-content-minimal {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Efectos de hover para iconos sociales */
+.footer-icon-link {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 0.8rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--blanco), var(--violeta-suave));
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-icon-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradiente-principal);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+.footer-icon-link:hover::before {
+  opacity: 1;
+}
+
+.footer-icon-link i {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.footer-icon-link:hover {
+  transform: scale(1.2) translateY(-3px);
+  color: var(--blanco);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+}
+
+.footer-icon-link:hover i {
+  color: var(--blanco);
+}
+
+/* Animación para los iconos de servicios */
+.precio-icono i, .certificado-icono i {
+  transition: transform 0.3s ease;
+}
+
+.precio-card:hover .precio-icono i,
+.certificado-card:hover .certificado-icono i {
+  transform: scale(1.1);
+}
+
+/* Mejora del botón de contacto con pulso sutil */
+.btn-minimal-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-minimal-hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(74, 78, 105, 0.1);
+  border-radius: 50%;
+  transition: width 0.4s ease, height 0.4s ease;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.btn-minimal-hero:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-minimal-hero * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Separadores visuales sutiles */
+section.minimal {
+  position: relative;
+}
+
+section.minimal:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--secundario), transparent);
+  opacity: 0.3;
+}
+
+/* Header simplificado solo con el nombre */
+.header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 30px rgba(99, 102, 241, 0.1);
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: var(--gradiente-principal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.6));
+  }
+}
+
+/* Micro-animaciones y detalles adicionales */
+
+/* Animación para los iconos pequeños */
+.icono-min {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.proyecto-card:hover .icono-min,
+.precio-card:hover .icono-min,
+.certificado-card:hover .icono-min {
+  transform: scale(1.1);
+  color: var(--secundario);
+}
+
+/* Efecto de focus mejorado para accesibilidad */
+.btn-minimal-hero:focus,
+.btn-minimal-link:focus {
+  outline: 2px solid var(--secundario);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(74, 78, 105, 0.1);
+}
+
+/* Animación de las tecnologías */
+.tecnologias-texto {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.tecnologias-texto span {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.tecnologias-texto span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.2);
+}
+
+/* Mejora del footer con gradiente sutil */
+.footer-destacado {
+  background: linear-gradient(135deg, var(--violeta-suave) 0%, var(--gris) 50%, var(--blanco) 100%);
+  border-top: 2px solid rgba(99, 102, 241, 0.1);
+  position: relative;
+}
+
+.footer-destacado::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradiente-principal);
+  opacity: 0.6;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Efecto de carga para el preview del proyecto */
+.preview-proyecto-static {
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-proyecto-static::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.8s ease;
+}
+
+.proyecto-card:hover .preview-proyecto-static::after {
+  left: 100%;
+}
+
+/* Mejoras específicas para el hero */
+.highlight-text {
+  background: var(--gradiente-principal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight-text::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradiente-principal);
+  border-radius: 2px;
+  animation: underlineGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes underlineGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+  }
+}
+
+.hero-subtitle {
+  color: var(--secundario);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.hero-desc {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 2rem 0 3rem 0;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  color: var(--negro);
+}
+
+.btn-minimal-hero {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  background: var(--gradiente-principal);
+  border: none;
+  color: var(--blanco);
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-minimal-hero:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+  color: var(--blanco);
+}
+
+/* Mejoras visuales avanzadas para las cards */
+.proyecto-card, .precio-card, .certificado-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+  background: linear-gradient(145deg, var(--blanco), var(--violeta-suave));
+  position: relative;
+  overflow: hidden;
+}
+
+.proyecto-card::before, .precio-card::before, .certificado-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.proyecto-card:hover::before, .precio-card:hover::before, .certificado-card:hover::before {
+  left: 100%;
+}
+
+.proyecto-card:hover, .precio-card:hover, .certificado-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(99, 102, 241, 0.2),
+    0 0 0 1px rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Mejora específica para la card de proyecto popular */
+.precio-popular {
+  background: linear-gradient(145deg, var(--violeta-suave), var(--blanco));
+  border: 2px solid var(--secundario);
+  position: relative;
+}
+
+.precio-popular::after {
+  content: '✨ Popular';
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: var(--gradiente-principal);
+  color: var(--blanco);
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Iconos con gradiente */
+.precio-icono i, .certificado-icono i, .proyecto-header i {
+  background: var(--gradiente-principal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.proyecto-card:hover .proyecto-header i,
+.precio-card:hover .precio-icono i,
+.certificado-card:hover .certificado-icono i {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+}
+
+/* Efectos decorativos y partículas sutiles */
+.hero.minimal::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  z-index: 1;
+}
+
+.servicios.minimal::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+  }
+}
+
+/* Separadores con gradiente mejorados */
+section.minimal:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--gradiente-principal);
+  opacity: 0.4;
+  border-radius: 2px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1.1);
+  }
 }
