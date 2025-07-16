@@ -1522,8 +1522,9 @@ footer.minimal span,
     padding: 1.2rem 1rem;
     min-width: 200px;
     max-width: 90vw;
-    max-height: 90vh;
-    overflow: visible;
+    max-height: 85vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
     position: relative;
     transform: scale(0.95);
   }
@@ -1577,8 +1578,10 @@ footer.minimal span,
   .dialogo-contacto-contenido {
     padding: 1rem 0.8rem;
     max-width: 95vw;
-    max-height: 95vh;
+    max-height: 90vh;
     transform: scale(0.9);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
   }
   
   .servicios-selector {
@@ -1608,9 +1611,11 @@ footer.minimal span,
 /* Ajuste para pantallas muy bajas */
 @media (max-height: 600px) {
   .dialogo-contacto-contenido {
-    max-height: 95vh;
+    max-height: 90vh;
     padding: 0.8rem 1rem;
     transform: scale(0.85);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
   }
   
   .dialogo-contacto {
@@ -1841,8 +1846,11 @@ body.modal-open {
   
   .toast-container {
     top: 70px;
-    right: 10px;
-    left: 10px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100% - 20px);
+    max-width: 350px;
     z-index: 10002;
   }
   

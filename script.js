@@ -631,13 +631,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     
-    // Mejorar feedback del sistema de contacto
-    serviciosBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const servicio = btn.dataset.servicio;
-        showToast(`✨ ${servicio} seleccionado`, 'success', 2000);
-      });
-    });
+    // Sin notificaciones para selección de servicios
+    // serviciosBtns.forEach(btn => {
+    //   btn.addEventListener('click', () => {
+    //     const servicio = btn.dataset.servicio;
+    //     showToast(`✨ ${servicio} seleccionado`, 'success', 2000);
+    //   });
+    // });
   }
 
   // Animación del logo al hacer clic
