@@ -655,6 +655,10 @@ section + section::before {
   .main-header,
   .header-nav-flex {
     padding: 1.2rem 2vw 0.7rem 2vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .hero {
     padding: 2.2rem 2vw 1.2rem 2vw;
@@ -696,15 +700,36 @@ section + section::before {
     font-size: 1rem;
     padding: 0.75rem 1.8rem;
   }
+  /* Ajuste del badge Popular en pantallas muy pequeñas */
+  .precio-popular::after {
+    right: 8px;
+    top: 8px;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
 }
 
 /* Unificar ancho de cards de certificados y servicios en móvil */
 @media (max-width: 700px) {
+  .main-header {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2vw;
+  }
   .certificado-card,
   .precio-card {
     min-width: 90vw;
     max-width: 90vw;
     width: 90vw;
+  }
+  /* Ajuste del badge Popular en móvil */
+  .precio-popular::after {
+    right: 12px;
+    top: 10px;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.8rem;
   }
 }
 
@@ -1349,13 +1374,14 @@ html {
   background: linear-gradient(145deg, var(--violeta-suave), var(--blanco));
   border: 2px solid var(--secundario);
   position: relative;
+  overflow: visible;
 }
 
 .precio-popular::after {
   content: '✨ Popular';
   position: absolute;
-  top: -10px;
-  right: 20px;
+  top: 8px;
+  right: 15px;
   background: var(--gradiente-principal);
   color: var(--blanco);
   padding: 0.3rem 1rem;
@@ -1363,6 +1389,7 @@ html {
   font-size: 0.8rem;
   font-weight: 600;
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  z-index: 10;
 }
 
 /* Iconos con gradiente */
