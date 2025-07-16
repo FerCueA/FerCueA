@@ -1510,6 +1510,352 @@ footer.minimal span,
   .toast.visible {
     transform: translateY(0);
   }
+  
+  /* Ajustes para el diálogo de contacto en móvil */
+  .dialogo-contacto {
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dialogo-contacto-contenido {
+    padding: 1.2rem 1rem;
+    min-width: 200px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: visible;
+    position: relative;
+    transform: scale(0.95);
+  }
+  
+  .servicios-selector {
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .servicio-btn {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    line-height: 1.2;
+  }
+  
+  .servicio-btn i {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    display: block;
+  }
+  
+  .dialogo-contacto-contenido h3 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+  
+  .dialogo-contacto-contenido h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    text-align: center;
+  }
+  
+  .btn-minimal-link {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .cerrar-dialogo {
+    font-size: 1.2rem;
+    top: 0.4rem;
+    right: 0.6rem;
+  }
+}
+
+/* Ajuste adicional para pantallas muy pequeñas */
+@media (max-width: 500px) {
+  .dialogo-contacto-contenido {
+    padding: 1rem 0.8rem;
+    max-width: 95vw;
+    max-height: 95vh;
+    transform: scale(0.9);
+  }
+  
+  .servicios-selector {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+  
+  .servicio-btn {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.7rem;
+  }
+  
+  .servicio-btn i {
+    font-size: 0.8rem;
+  }
+  
+  .dialogo-contacto-contenido h3 {
+    font-size: 0.9rem;
+  }
+  
+  .btn-minimal-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Ajuste para pantallas muy bajas */
+@media (max-height: 600px) {
+  .dialogo-contacto-contenido {
+    max-height: 95vh;
+    padding: 0.8rem 1rem;
+    transform: scale(0.85);
+  }
+  
+  .dialogo-contacto {
+    padding: 0.3rem;
+  }
+  
+  .servicios-selector {
+    gap: 0.3rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .servicio-btn {
+    padding: 0.4rem 0.3rem;
+    font-size: 0.65rem;
+  }
+  
+  .dialogo-contacto-contenido h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .dialogo-contacto-contenido h4 {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
+/* Bloquear scroll del body cuando el modal está abierto */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Toast notifications mejorado - mejor z-index y posicionamiento */
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 10002;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--tarjeta) !important;
+  border: 2px solid var(--primario) !important;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 350px;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: auto;
+  position: relative;
+  z-index: 10003;
+}
+
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast.hiding {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--texto) !important;
+  font-weight: 600;
+}
+
+.toast-content i {
+  font-size: 1.1rem;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: var(--texto-claro) !important;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-close:hover {
+  background: var(--hover-suave);
+  color: var(--texto) !important;
+}
+
+.toast-success {
+  background: linear-gradient(135deg, #10b981, #34d399) !important;
+  border-color: #10b981 !important;
+}
+
+.toast-success .toast-content {
+  color: white !important;
+}
+
+.toast-success .toast-content i {
+  color: white !important;
+}
+
+.toast-success .toast-close {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.toast-success .toast-close:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.toast-info {
+  background: var(--tarjeta) !important;
+  border-color: var(--primario) !important;
+}
+
+.toast-info .toast-content {
+  color: var(--texto) !important;
+}
+
+.toast-info .toast-content i {
+  color: var(--primario) !important;
+}
+
+.toast-info .toast-close {
+  color: var(--texto-claro) !important;
+}
+
+.toast-info .toast-close:hover {
+  color: var(--texto) !important;
+  background: var(--hover-suave);
+}
+
+.toast-error .toast-content i {
+  color: #ef4444;
+}
+
+.toast-warning .toast-content i {
+  color: #f59e0b;
+}
+
+/* Animación para el logo al hacer clic */
+.logo {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo.clicked {
+  animation: logoClick 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes logoClick {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.8));
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 30px rgba(99, 102, 241, 1));
+  }
+  75% {
+    transform: scale(1.1) rotate(-2deg);
+    filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.6));
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.3));
+  }
+}
+
+/* Efecto de partículas al hacer clic */
+.logo-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--primario);
+  border-radius: 50%;
+  animation: logoParticle 1s ease-out forwards;
+  z-index: 1000;
+}
+
+@keyframes logoParticle {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(var(--dx), var(--dy));
+  }
+}
+
+/* Responsive para móvil del logo */
+@media (max-width: 600px) {
+  .logo.clicked {
+    animation: logoClickMobile 0.6s ease;
+  }
+  
+  @keyframes logoClickMobile {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .toast-container {
+    top: 70px;
+    right: 10px;
+    left: 10px;
+    z-index: 10002;
+  }
+  
+  .toast {
+    max-width: none;
+    padding: 0.875rem 1.2rem;
+    font-size: 0.85rem;
+    border-width: 2px;
+  }
+  
+  .toast-content {
+    font-size: 0.85rem;
+  }
 }
 
 .section-title {

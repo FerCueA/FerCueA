@@ -433,6 +433,9 @@ document.addEventListener("DOMContentLoaded", function () {
       dialogo.style.display = "flex";
       dialogo.setAttribute('aria-hidden', 'false');
       
+      // Bloquear scroll del body
+      document.body.classList.add('modal-open');
+      
       // Reset selección y ocultar métodos al abrir
       servicioSeleccionado = null;
       if (contactoMetodos) contactoMetodos.style.display = "none";
@@ -463,6 +466,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (dialogo) {
       dialogo.style.display = "none";
       dialogo.setAttribute('aria-hidden', 'true');
+      
+      // Desbloquear scroll del body
+      document.body.classList.remove('modal-open');
+      
       if (btnContacto) btnContacto.focus(); // Devolver focus
     }
   }
@@ -580,6 +587,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Ocultar preloader después de cargar
   hidePreloader();
+  
+  // Inicializar animación del logo
+  initLogoAnimation();
 
   function initAdvancedFeatures() {
     // Inicializar sistema de partículas
@@ -616,7 +626,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const message = currentTheme === 'dark' ? 
             '🌙 Modo oscuro activado' : 
             '☀️ Modo claro activado';
-          showToast(message, 'info', 2000);
+          showToast(message, 'success', 2000);
         }, 100);
       });
     }
@@ -628,6 +638,76 @@ document.addEventListener("DOMContentLoaded", function () {
         showToast(`✨ ${servicio} seleccionado`, 'success', 2000);
       });
     });
+  }
+
+  // Animación del logo al hacer clic
+  function initLogoAnimation() {
+    const logo = document.querySelector('.logo');
+    
+    if (logo) {
+      logo.addEventListener('click', function() {
+        // Remover clase si ya existe
+        logo.classList.remove('clicked');
+        
+        // Forzar reflow para reiniciar la animación
+        logo.offsetHeight;
+        
+        // Agregar clase de animación
+        logo.classList.add('clicked');
+        
+        // Crear partículas
+        createLogoParticles(logo);
+        
+        // Mostrar notificación divertida
+        if (typeof showToast === 'function') {
+          showToast('¡Hola! 👋 Gracias por hacer clic en mi nombre', 'success', 3000);
+        }
+        
+        // Remover clase después de la animación
+        setTimeout(() => {
+          logo.classList.remove('clicked');
+        }, 800);
+      });
+    }
+  }
+
+  // Crear partículas al hacer clic en el logo
+  function createLogoParticles(logo) {
+    const rect = logo.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    // Crear 8 partículas
+    for (let i = 0; i < 8; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'logo-particle';
+      
+      // Posición inicial en el centro del logo
+      particle.style.left = centerX + 'px';
+      particle.style.top = centerY + 'px';
+      
+      // Dirección aleatoria
+      const angle = (i * 45) * (Math.PI / 180); // 8 direcciones
+      const distance = 100 + Math.random() * 50;
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+      
+      particle.style.setProperty('--dx', dx + 'px');
+      particle.style.setProperty('--dy', dy + 'px');
+      
+      // Color aleatorio entre los colores del tema
+      const colors = ['var(--primario)', 'var(--secundario)', 'var(--acento)'];
+      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      
+      document.body.appendChild(particle);
+      
+      // Remover partícula después de la animación
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, 1000);
+    }
   }
 
   // Mejorar accesibilidad general
