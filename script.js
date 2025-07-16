@@ -10,6 +10,350 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctaFlotante = document.getElementById("cta-flotante");
   
   let servicioSeleccionado = null;
+  let toastQueue = [];
+  let isProcessingToasts = false;
+  let particleSystem = null;
+  let customCursor = null;
+
+  // ========================================
+  // SISTEMA DE NOTIFICACIONES TOAST
+  // ========================================
+
+  function showToast(message, type = 'info', duration = 4000) {
+    const toast = {
+      id: Date.now() + Math.random(),
+      message,
+      type,
+      duration
+    };
+    
+    toastQueue.push(toast);
+    
+    if (!isProcessingToasts) {
+      processToastQueue();
+    }
+  }
+
+  function processToastQueue() {
+    if (toastQueue.length === 0) {
+      isProcessingToasts = false;
+      return;
+    }
+    
+    isProcessingToasts = true;
+    const toast = toastQueue.shift();
+    createToastElement(toast);
+    
+    setTimeout(() => {
+      processToastQueue();
+    }, 300);
+  }
+
+  function createToastElement(toast) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    
+    const toastEl = document.createElement('div');
+    toastEl.className = `toast toast-${toast.type}`;
+    toastEl.setAttribute('role', 'alert');
+    toastEl.setAttribute('aria-live', 'polite');
+    
+    const iconMap = {
+      success: 'bi-check-circle-fill',
+      error: 'bi-exclamation-triangle-fill',
+      warning: 'bi-exclamation-circle-fill',
+      info: 'bi-info-circle-fill'
+    };
+    
+    toastEl.innerHTML = `
+      <div class="toast-content">
+        <i class="bi ${iconMap[toast.type] || iconMap.info}"></i>
+        <span>${toast.message}</span>
+      </div>
+      <button class="toast-close" onclick="removeToast(this)" aria-label="Cerrar notificación">
+        <i class="bi bi-x"></i>
+      </button>
+    `;
+    
+    container.appendChild(toastEl);
+    
+    // Animación de entrada
+    requestAnimationFrame(() => {
+      toastEl.classList.add('show');
+    });
+    
+    // Auto-eliminar
+    setTimeout(() => {
+      removeToast(toastEl);
+    }, toast.duration);
+  }
+
+  window.removeToast = function(element) {
+    const toastEl = element.classList ? element : element.closest('.toast');
+    if (!toastEl) return;
+    
+    toastEl.classList.add('hiding');
+    
+    setTimeout(() => {
+      if (toastEl.parentNode) {
+        toastEl.parentNode.removeChild(toastEl);
+      }
+    }, 300);
+  };
+
+  // ========================================
+  // SISTEMA DE PARTÍCULAS
+  // ========================================
+
+  class ParticleSystem {
+    constructor(container) {
+      this.container = container;
+      this.particles = [];
+      this.maxParticles = window.innerWidth > 768 ? 50 : 25;
+      this.isRunning = false;
+      
+      this.init();
+    }
+    
+    init() {
+      this.createParticles();
+      this.start();
+      
+      // Escuchar cambios de tamaño de ventana
+      window.addEventListener('resize', () => {
+        this.maxParticles = window.innerWidth > 768 ? 50 : 25;
+        this.adjustParticleCount();
+      });
+    }
+    
+    createParticles() {
+      for (let i = 0; i < this.maxParticles; i++) {
+        this.createParticle();
+      }
+    }
+    
+    createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      
+      // Posición aleatoria
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      
+      // Tamaño aleatorio
+      const size = Math.random() * 4 + 2;
+      
+      // Velocidad aleatoria
+      const vx = (Math.random() - 0.5) * 2;
+      const vy = (Math.random() - 0.5) * 2;
+      
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      
+      particle.vx = vx;
+      particle.vy = vy;
+      particle.x = x;
+      particle.y = y;
+      
+      this.container.appendChild(particle);
+      this.particles.push(particle);
+    }
+    
+    updateParticles() {
+      this.particles.forEach(particle => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        
+        // Rebotar en los bordes
+        if (particle.x <= 0 || particle.x >= window.innerWidth) {
+          particle.vx *= -1;
+        }
+        if (particle.y <= 0 || particle.y >= window.innerHeight) {
+          particle.vy *= -1;
+        }
+        
+        // Mantener dentro de la pantalla
+        particle.x = Math.max(0, Math.min(window.innerWidth, particle.x));
+        particle.y = Math.max(0, Math.min(window.innerHeight, particle.y));
+        
+        particle.style.left = particle.x + 'px';
+        particle.style.top = particle.y + 'px';
+      });
+    }
+    
+    adjustParticleCount() {
+      const currentCount = this.particles.length;
+      
+      if (currentCount > this.maxParticles) {
+        // Remover partículas excedentes
+        for (let i = currentCount - 1; i >= this.maxParticles; i--) {
+          const particle = this.particles[i];
+          if (particle.parentNode) {
+            particle.parentNode.removeChild(particle);
+          }
+          this.particles.splice(i, 1);
+        }
+      } else if (currentCount < this.maxParticles) {
+        // Agregar más partículas
+        for (let i = currentCount; i < this.maxParticles; i++) {
+          this.createParticle();
+        }
+      }
+    }
+    
+    start() {
+      if (this.isRunning) return;
+      this.isRunning = true;
+      this.animate();
+    }
+    
+    stop() {
+      this.isRunning = false;
+    }
+    
+    animate() {
+      if (!this.isRunning) return;
+      
+      this.updateParticles();
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  // ========================================
+  // CURSOR PERSONALIZADO
+  // ========================================
+
+  class CustomCursor {
+    constructor() {
+      this.cursor = document.getElementById('custom-cursor');
+      this.isVisible = false;
+      
+      this.init();
+    }
+    
+    init() {
+      if (!this.cursor) return;
+      
+      // Solo activar en dispositivos no táctiles
+      if (window.matchMedia('(pointer: fine)').matches) {
+        document.addEventListener('mousemove', (e) => this.updatePosition(e));
+        document.addEventListener('mouseenter', () => this.show());
+        document.addEventListener('mouseleave', () => this.hide());
+        
+        // Efectos en elementos interactivos
+        const interactiveElements = document.querySelectorAll('a, button, [role="button"], .card, .project-card');
+        
+        interactiveElements.forEach(el => {
+          el.addEventListener('mouseenter', () => this.addHoverEffect());
+          el.addEventListener('mouseleave', () => this.removeHoverEffect());
+        });
+      } else {
+        this.cursor.style.display = 'none';
+      }
+    }
+    
+    updatePosition(e) {
+      if (!this.cursor) return;
+      
+      this.cursor.style.left = e.clientX + 'px';
+      this.cursor.style.top = e.clientY + 'px';
+    }
+    
+    show() {
+      if (this.cursor) {
+        this.cursor.classList.add('visible');
+        this.isVisible = true;
+      }
+    }
+    
+    hide() {
+      if (this.cursor) {
+        this.cursor.classList.remove('visible');
+        this.isVisible = false;
+      }
+    }
+    
+    addHoverEffect() {
+      if (this.cursor) {
+        this.cursor.classList.add('hover');
+      }
+    }
+    
+    removeHoverEffect() {
+      if (this.cursor) {
+        this.cursor.classList.remove('hover');
+      }
+    }
+  }
+
+  // ========================================
+  // BARRA DE PROGRESO DE SCROLL
+  // ========================================
+
+  function updateScrollProgress() {
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (!scrollProgress) return;
+    
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    
+    scrollProgress.style.width = Math.min(100, Math.max(0, progress)) + '%';
+  }
+
+  // ========================================
+  // BOTÓN VOLVER ARRIBA
+  // ========================================
+
+  function updateScrollToTopButton() {
+    const button = document.getElementById('scroll-to-top');
+    if (!button) return;
+    
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 300) {
+      button.classList.add('visible');
+    } else {
+      button.classList.remove('visible');
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    showToast('¡Volviendo al inicio! 🔝', 'info', 2000);
+  }
+
+  // ========================================
+  // PRELOADER
+  // ========================================
+
+  function hidePreloader() {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return;
+    
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        
+        // Mostrar contenido con animación
+        document.body.classList.add('loaded');
+        
+        // Notificación de bienvenida
+        setTimeout(() => {
+          showToast('¡Bienvenido a mi portfolio! 🚀', 'success', 3000);
+        }, 500);
+        
+      }, 500);
+    }, 1000);
+  }
 
   // ===== TEMA OSCURO/CLARO =====
   function initTheme() {
@@ -230,6 +574,61 @@ document.addEventListener("DOMContentLoaded", function () {
   initContactDialog();
   initServiceSelection();
   initScrollAnimations();
+  
+  // Inicializar nuevas funcionalidades avanzadas
+  initAdvancedFeatures();
+  
+  // Ocultar preloader después de cargar
+  hidePreloader();
+
+  function initAdvancedFeatures() {
+    // Inicializar sistema de partículas
+    const particlesContainer = document.getElementById('particles-container');
+    if (particlesContainer) {
+      particleSystem = new ParticleSystem(particlesContainer);
+    }
+    
+    // Inicializar cursor personalizado
+    customCursor = new CustomCursor();
+    
+    // Event listeners para scroll
+    window.addEventListener('scroll', () => {
+      updateScrollProgress();
+      updateScrollToTopButton();
+    });
+    
+    // Event listener para botón volver arriba
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+    if (scrollToTopBtn) {
+      scrollToTopBtn.addEventListener('click', scrollToTop);
+    }
+    
+    // Mejorar notificaciones del sistema existente
+    enhanceExistingFeatures();
+  }
+
+  function enhanceExistingFeatures() {
+    // Mejorar feedback del cambio de tema
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        setTimeout(() => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const message = currentTheme === 'dark' ? 
+            '🌙 Modo oscuro activado' : 
+            '☀️ Modo claro activado';
+          showToast(message, 'info', 2000);
+        }, 100);
+      });
+    }
+    
+    // Mejorar feedback del sistema de contacto
+    serviciosBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const servicio = btn.dataset.servicio;
+        showToast(`✨ ${servicio} seleccionado`, 'success', 2000);
+      });
+    });
+  }
 
   // Mejorar accesibilidad general
   document.addEventListener('focusin', function(e) {

@@ -65,6 +65,25 @@
     <link rel="preload" href="styles.css" as="style" />
   </head>
   <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Progress bar de scroll -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Partículas flotantes -->
+    <div class="particles-container" id="particles-container"></div>
+
+    <!-- Cursor personalizado -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- Botón volver arriba -->
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Volver arriba">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
     <!-- Toggle de tema -->
     <button 
       class="theme-toggle" 
@@ -319,6 +338,10 @@
         ></a>
       </div>
     </footer>
+
+    <!-- Container para notificaciones toast -->
+    <div class="toast-container" id="toast-container"></div>
+
     <script src="script.js"></script>
   </body>
 </html>
