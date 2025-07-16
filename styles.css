@@ -1000,6 +1000,21 @@ footer.minimal span,
 
 /* Responsive para el selector */
 @media (max-width: 500px) {
+  .main-header {
+    height: 20vh !important;
+    min-height: 20vh;
+    max-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2vw;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
   .servicios-selector {
     grid-template-columns: 1fr;
   }
