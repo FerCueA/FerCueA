@@ -466,8 +466,7 @@ nav a:hover {
   height: 100%; /* Ocupa toda la altura disponible */
 }
 
-.precio-card:hover,
-.precio-popular {
+.precio-card:hover {
   box-shadow: 0 8px 32px rgba(0, 87, 184, 0.13);
   border-color: var(--secundario);
   z-index: 2;
@@ -475,7 +474,16 @@ nav a:hover {
 
 .precio-popular {
   border-left: 4px solid var(--primario);
-  background: #f3f3fa;
+  background: linear-gradient(145deg, var(--violeta-suave), var(--blanco));
+  border: 2px solid var(--secundario);
+  position: relative;
+  overflow: visible;
+}
+
+.precio-popular:hover {
+  box-shadow: 0 8px 32px rgba(0, 87, 184, 0.13);
+  border-color: var(--primario);
+  z-index: 2;
 }
 
 .precio-icono {
@@ -930,6 +938,75 @@ footer.minimal span,
   margin-bottom: 0;
 }
 
+/* Estilos para selector de servicios */
+.servicios-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.servicio-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.8rem;
+  border: 2px solid var(--secundario);
+  border-radius: 12px;
+  background: var(--blanco);
+  color: var(--secundario);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.servicio-btn:hover {
+  background: var(--secundario);
+  color: var(--blanco);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.servicio-btn.selected {
+  background: var(--gradiente-principal);
+  color: var(--blanco);
+  border-color: var(--primario);
+}
+
+.servicio-btn i {
+  font-size: 1.2rem;
+}
+
+.contacto-metodos {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive para el selector */
+@media (max-width: 500px) {
+  .servicios-selector {
+    grid-template-columns: 1fr;
+  }
+  
+  .servicio-btn {
+    padding: 0.8rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
 .section-title {
   display: flex;
   align-items: center;
@@ -1369,14 +1446,7 @@ html {
   border-color: rgba(99, 102, 241, 0.3);
 }
 
-/* Mejora específica para la card de proyecto popular */
-.precio-popular {
-  background: linear-gradient(145deg, var(--violeta-suave), var(--blanco));
-  border: 2px solid var(--secundario);
-  position: relative;
-  overflow: visible;
-}
-
+/* Mejora específica para la card de proyecto popular - Badge */
 .precio-popular::after {
   content: '✨ Popular';
   position: absolute;
