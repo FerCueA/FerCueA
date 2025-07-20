@@ -346,11 +346,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Mostrar contenido con animación
         document.body.classList.add('loaded');
         
-        // Notificación de bienvenida
-        setTimeout(() => {
-          showToast('¡Bienvenido a mi portfolio! 🚀', 'success', 3000);
-        }, 500);
-        
       }, 500);
     }, 1000);
   }
@@ -696,11 +691,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
         // Crear partículas
         createLogoParticles(logo);
-        
-        // Mostrar notificación divertida
-        if (typeof showToast === 'function') {
-          showToast('¡Hola! 👋 Gracias por hacer clic en mi nombre', 'success', 3000);
-        }
         
         // Remover clase después de la animación
         setTimeout(() => {
