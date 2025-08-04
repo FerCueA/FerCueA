@@ -31,6 +31,9 @@ body {
   color: var(--negro) !important;
   transition: background 0.3s ease, color 0.3s ease;
   min-height: 100vh;
+  max-width: 2560px;
+  margin: 0 auto;
+  position: relative;
 }
 .logo,
 h1,
@@ -144,7 +147,7 @@ html {
 
 .main-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 2rem 6vw 1.5rem 6vw;
   background: var(--blanco);
@@ -154,6 +157,8 @@ html {
   z-index: 50;
   transition: box-shadow 0.2s;
   box-shadow: 0 2px 8px rgba(24, 28, 47, 0.03);
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 .header-flex {
@@ -218,6 +223,8 @@ nav a:hover {
   text-align: center;
   padding: 5rem 2vw 4rem 2vw;
   background: var(--blanco);
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 .hero-content {
@@ -319,17 +326,21 @@ nav a:hover {
 }
 
 .proyectos-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
   justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .proyecto-card {
   background: var(--gris);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  width: 320px;
+  width: 100%;
+  max-width: 400px;
+  min-width: 300px;
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -338,6 +349,7 @@ nav a:hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  justify-self: center;
 }
 
 .proyecto-card::before {
@@ -2387,6 +2399,8 @@ section.minimal:not(:last-child)::after {
   background: linear-gradient(135deg, var(--violeta-suave) 0%, var(--gris) 50%, var(--blanco) 100%);
   border-top: 2px solid rgba(99, 102, 241, 0.1);
   position: relative;
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 .footer-destacado::before {
@@ -2676,5 +2690,277 @@ section.minimal:not(:last-child)::after {
   50% {
     opacity: 0.8;
     transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* =================================================
+   OPTIMIZACIONES PARA PANTALLAS GRANDES (Desktop 2K)
+   ================================================= */
+
+/* Contenedor principal para limitar el ancho máximo */
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Media queries para pantallas grandes */
+@media (min-width: 1200px) {
+  /* Hero section optimizado */
+  .hero-content-minimal {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-content-minimal h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+  }
+  
+  .hero-desc {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+  }
+
+  /* Proyectos con mejor espaciado */
+  .proyectos-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 3rem;
+  }
+  
+  .proyecto-card {
+    width: 400px;
+    padding: 2.5rem 2rem 2rem 2rem;
+  }
+  
+  .preview-proyecto-image {
+    height: 240px;
+  }
+
+  /* Servicios en grid de 4 columnas */
+  .precios-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+    gap: 2.5rem;
+  }
+  
+  .precio-card {
+    padding: 3rem 2rem;
+  }
+
+  /* Certificados centrados */
+  .certificados-grid {
+    max-width: 1000px;
+    gap: 3rem;
+  }
+  
+  .certificado-card {
+    padding: 2.5rem 2rem;
+  }
+
+  /* Botones más grandes */
+  .btn-minimal-hero,
+  .btn-minimal-link {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    min-width: 200px;
+  }
+}
+
+@media (min-width: 1600px) {
+  /* Para pantallas muy grandes (1600px+) */
+  main {
+    max-width: 1800px;
+    padding: 0 3rem;
+  }
+  
+  .hero-content-minimal h1 {
+    font-size: 4rem;
+  }
+  
+  .hero-desc {
+    font-size: 1.4rem;
+  }
+
+  .proyectos-grid {
+    max-width: 1400px;
+    gap: 4rem;
+  }
+  
+  .proyecto-card {
+    width: 450px;
+    padding: 3rem 2.5rem;
+  }
+  
+  .preview-proyecto-image {
+    height: 280px;
+  }
+
+  .precios-grid {
+    max-width: 1600px;
+    gap: 3rem;
+  }
+  
+  .precio-card {
+    padding: 3.5rem 2.5rem;
+  }
+
+  /* Títulos de sección más grandes */
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .section-title::after {
+    width: 80px;
+    height: 4px;
+  }
+}
+
+@media (min-width: 2000px) {
+  /* Para pantallas 2K y superiores */
+  main {
+    max-width: 2000px;
+    padding: 0 4rem;
+  }
+  
+  /* Secciones con más padding vertical */
+  section.minimal {
+    padding: 6rem 2rem;
+  }
+  
+  .hero-content-minimal h1 {
+    font-size: 4.5rem;
+  }
+  
+  .hero-desc {
+    font-size: 1.5rem;
+    max-width: 700px;
+  }
+
+  /* Grid de proyectos más espacioso */
+  .proyectos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1600px;
+    gap: 5rem;
+  }
+  
+  .proyecto-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 3.5rem 3rem;
+  }
+
+  /* Servicios con mejor distribución */
+  .precios-grid {
+    max-width: 1800px;
+    gap: 4rem;
+  }
+
+  /* Certificados más grandes */
+  .certificados-grid {
+    max-width: 1200px;
+    gap: 4rem;
+  }
+  
+  .certificado-card {
+    padding: 3rem 2.5rem;
+  }
+
+  /* Footer con mejor espaciado */
+  footer.minimal {
+    padding: 3rem 4rem;
+  }
+}
+
+/* Optimización para ultra-wide (aspect ratio muy ancho) */
+@media (min-aspect-ratio: 21/9) {
+  main {
+    max-width: 1400px;
+  }
+  
+  .hero-content-minimal {
+    max-width: 600px;
+  }
+  
+  .proyectos-grid,
+  .precios-grid {
+    max-width: 1200px;
+  }
+}
+
+/* Mejoras de rendimiento para pantallas grandes */
+@media (min-width: 1200px) {
+  /* Optimizar animaciones para pantallas grandes */
+  .proyecto-card:hover,
+  .precio-card:hover,
+  .certificado-card:hover {
+    transform: translateY(-12px);
+  }
+  
+  /* Mejorar los efectos de hover en botones */
+  .btn-minimal-hero:hover,
+  .btn-minimal-link:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Partículas más visibles en pantallas grandes */
+  .particles-container {
+    opacity: 0.6;
+  }
+}
+
+/* Media query específico para pantallas intermedias (1440px - 1920px) */
+@media (min-width: 1440px) and (max-width: 1920px) {
+  main {
+    max-width: 1600px;
+    padding: 0 2.5rem;
+  }
+  
+  .hero-content-minimal h1 {
+    font-size: 3.8rem;
+  }
+  
+  .proyectos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+    gap: 3.5rem;
+  }
+  
+  .precios-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1500px;
+  }
+  
+  .certificados-grid {
+    max-width: 1100px;
+    gap: 3.5rem;
+  }
+}
+
+/* Optimización específica para pantallas 4K (aunque limitamos a 2K) */
+@media (min-width: 2560px) {
+  body {
+    max-width: 2560px;
+  }
+  
+  main {
+    max-width: 2200px;
+    padding: 0 5rem;
+  }
+  
+  .hero-content-minimal h1 {
+    font-size: 5rem;
+  }
+  
+  .hero-desc {
+    font-size: 1.6rem;
+    max-width: 800px;
+  }
+  
+  section.minimal {
+    padding: 8rem 3rem;
   }
 }
