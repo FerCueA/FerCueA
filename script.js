@@ -516,15 +516,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== MENSAJES WHATSAPP =====
   const mensajesServicios = {
-    web: "¡Hola! Me interesa una página web profesional. ¿Podrías darme más información sobre servicios, plazos y presupuesto?",
-    servidor: "¡Hola! Necesito información sobre hosting, dominio y gestión de servidor. ¿Qué incluyen estos servicios?",
-    marca: "¡Hola! Me interesa el servicio de diseño de marca y redes sociales. ¿Podrías contarme más sobre el proceso?",
-    otros: "¡Hola! Tengo un proyecto específico en mente. ¿Podríamos hablar sobre una solución a medida?",
-    general: "¡Hola! Me gustaría conocer más sobre tus servicios de desarrollo web y cómo podrías ayudarme con mi proyecto."
+    menu: "¡Hola! Me gustaría ver el menú completo del restaurante. ¿Tienen alguna especialidad del día?",
+    reserva: "¡Hola! Me gustaría hacer una reserva. ¿Podrían ayudarme con disponibilidad y horarios?",
+    delivery: "¡Hola! Me interesa hacer un pedido a domicilio. ¿Podrían enviarme información sobre el delivery?",
+    contacto: "¡Hola! Me gustaría contactar con el restaurante para consultar información general.",
+    ubicacion: "¡Hola! ¿Podrían proporcionarme la dirección exacta y cómo llegar al restaurante?",
+    general: "¡Hola! Me gustaría conocer más sobre el restaurante y sus servicios."
   };
 
   function generarURLWhatsApp(servicio) {
-    const telefono = "34628230716";
+    const telefono = "34123456789";
     const mensaje = encodeURIComponent(mensajesServicios[servicio] || mensajesServicios.general);
     
     if (esMobile()) {

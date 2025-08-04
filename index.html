@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aleixo Fdez Cuevas | Desarrollo Web Profesional | Portfolio</title>
+    <title>Restaurante QR | Menu Digital y Pedidos Online</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -13,23 +13,23 @@
     <!-- SEO Mejorado -->
     <meta
       name="description"
-      content="Portfolio profesional de Aleixo Fdez Cuevas: especialista en desarrollo web, diseño de marca y soluciones digitales. Creamos páginas web responsive, sistemas de gestión y estrategias de marca personalizadas."
+      content="Restaurante QR - Menu digital interactivo. Consulta nuestra carta, realiza pedidos y disfruta de la mejor gastronomía. Acceso rápido mediante código QR."
     />
-    <meta name="keywords" content="desarrollo web, diseño web, páginas web, portfolio, Aleixo Fernandez Cuevas, marca digital, responsive design, HTML, CSS, JavaScript, osteopatía web" />
-    <meta name="author" content="Aleixo Fdez Cuevas" />
+    <meta name="keywords" content="restaurante, menu digital, QR code, pedidos online, comida, gastronomía, carta digital, delivery" />
+    <meta name="author" content="Restaurante QR" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Aleixo Fdez Cuevas | Desarrollo Web Profesional" />
-    <meta property="og:description" content="Especialista en desarrollo web y diseño de marca. Creamos soluciones digitales profesionales y personalizadas para tu negocio." />
+    <meta property="og:title" content="Restaurante QR | Menu Digital" />
+    <meta property="og:description" content="Menu digital interactivo. Consulta nuestra carta y realiza pedidos mediante código QR." />
     <meta property="og:image" content="/img/favicon.png" />
-    <meta property="og:url" content="https://aleixofdezcuevas.com" />
-    <meta property="og:site_name" content="Aleixo Fdez Cuevas - Portfolio" />
+    <meta property="og:url" content="https://restauranteqr.netlify.app" />
+    <meta property="og:site_name" content="Restaurante QR" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Aleixo Fdez Cuevas | Desarrollo Web Profesional" />
-    <meta name="twitter:description" content="Especialista en desarrollo web y diseño de marca. Soluciones digitales profesionales." />
+    <meta name="twitter:title" content="Restaurante QR | Menu Digital" />
+    <meta name="twitter:description" content="Menu digital interactivo. Consulta nuestra carta y realiza pedidos." />
     <meta name="twitter:image" content="/img/favicon.png" />
     
     <!-- Favicon y PWA -->
@@ -41,22 +41,16 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Aleixo Fdez Cuevas",
-      "jobTitle": "Desarrollador Web",
-      "description": "Especialista en desarrollo web y diseño de marca",
-      "url": "https://aleixofdezcuevas.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/aleixo-fernandez-cuevas-395a52367/",
-        "https://github.com/FerCueA",
-        "https://www.instagram.com/aleixofdezcuevas/"
-      ],
-      "knowsAbout": ["Desarrollo Web", "HTML", "CSS", "JavaScript", "Diseño Responsive", "Branding"],
-      "offers": {
-        "@type": "Service",
-        "serviceType": "Desarrollo Web",
-        "description": "Desarrollo de páginas web profesionales, responsive y optimizadas"
-      }
+      "@type": "Restaurant",
+      "name": "Restaurante QR",
+      "description": "Restaurante con menu digital interactivo y pedidos online",
+      "url": "https://restauranteqr.netlify.app",
+      "servesCuisine": ["Internacional", "Mediterránea", "Española"],
+      "priceRange": "€€",
+      "acceptsReservations": true,
+      "hasMenu": true,
+      "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+      "currenciesAccepted": "EUR"
     }
     </script>
     
@@ -98,27 +92,27 @@
     <button 
       class="cta-flotante" 
       id="cta-flotante"
-      aria-label="Contactar ahora"
-      title="¡Hablemos de tu proyecto!"
+      aria-label="Ver menú ahora"
+      title="¡Descubre nuestro menú!"
     >
-      <i class="bi bi-chat-heart cta-icon"></i>
-      <span>¡Hablemos!</span>
+      <i class="bi bi-qr-code cta-icon"></i>
+      <span>¡Ver Menú!</span>
     </button>
     <header class="main-header minimal header-center">
-      <div class="logo">Aleixo Fdez Cuevas</div>
+      <div class="logo">🍽️ Restaurante QR</div>
     </header>
 
     <main>
       <section class="hero minimal">
         <div class="hero-content-minimal">
-          <h1>Haz que tu proyecto <span class="highlight-text">destaque</span></h1>
+          <h1>Bienvenido a <span class="highlight-text">Restaurante QR</span></h1>
           <p class="hero-desc">
-            Desarrollo web, marca y redes sociales con un toque profesional.<br />
-            <span class="hero-subtitle">Soluciones digitales a tu medida.</span>
+            Disfruta de nuestra exquisita gastronomía con nuestro menú digital.<br />
+            <span class="hero-subtitle">Escanea, elige y disfruta.</span>
           </p>
           <a href="#" class="btn-minimal-hero" id="btn-contacto">
-            <i class="bi bi-chat-dots icono-min"></i>
-            Contáctame
+            <i class="bi bi-qr-code icono-min"></i>
+            Ver Menú
             <span class="arrow-icon" aria-hidden="true">→</span>
           </a>
           <div
@@ -127,23 +121,23 @@
           >
             <div class="dialogo-contacto-contenido">
               <button class="cerrar-dialogo" id="cerrar-dialogo">×</button>
-              <h3>¿Qué servicio te interesa?</h3>
+              <h3>¿Qué te gustaría hacer?</h3>
               
               <div class="servicios-selector">
-                <button class="servicio-btn" data-servicio="web">
-                  <i class="bi bi-globe"></i> Página web
+                <button class="servicio-btn" data-servicio="menu">
+                  <i class="bi bi-card-list"></i> Ver Menú Completo
                 </button>
-                <button class="servicio-btn" data-servicio="servidor">
-                  <i class="bi bi-hdd-network"></i> Servidor + gestión
+                <button class="servicio-btn" data-servicio="reserva">
+                  <i class="bi bi-calendar-check"></i> Hacer Reserva
                 </button>
-                <button class="servicio-btn" data-servicio="marca">
-                  <i class="bi bi-brush"></i> Marca y redes sociales
+                <button class="servicio-btn" data-servicio="delivery">
+                  <i class="bi bi-truck"></i> Pedido a Domicilio
                 </button>
-                <button class="servicio-btn" data-servicio="otros">
-                  <i class="bi bi-stars"></i> Otros / A medida
+                <button class="servicio-btn" data-servicio="contacto">
+                  <i class="bi bi-telephone"></i> Contactar Restaurante
                 </button>
-                <button class="servicio-btn" data-servicio="general">
-                  <i class="bi bi-chat-dots"></i> Consulta general
+                <button class="servicio-btn" data-servicio="ubicacion">
+                  <i class="bi bi-geo-alt"></i> ¿Cómo llegar?
                 </button>
               </div>
 
@@ -156,13 +150,12 @@
                   ><i class="bi bi-whatsapp"></i> WhatsApp</a
                 >
                 <a
-                  href="https://www.instagram.com/aleixofdezcuevas/"
-                  target="_blank"
+                  href="tel:+34123456789"
                   class="btn-minimal-link"
-                  ><i class="bi bi-instagram"></i> Instagram</a
+                  ><i class="bi bi-telephone"></i> Llamar</a
                 >
-                <a href="mailto:fercuea90@protonmail.com" class="btn-minimal-link"
-                  ><i class="bi bi-envelope"></i> Correo</a
+                <a href="mailto:info@restauranteqr.com" class="btn-minimal-link"
+                  ><i class="bi bi-envelope"></i> Email</a
                 >
               </div>
             </div>
@@ -171,38 +164,101 @@
       </section>
 
       <section class="proyectos minimal" id="proyectos">
-        <h2><i class="bi bi-folder2-open icono-min"></i> Proyectos</h2>
+        <h2><i class="bi bi-card-list icono-min"></i> Categorías del Menú</h2>
         <div class="proyectos-grid minimal fadein-on-scroll">
           <div class="proyecto-card minimal">
             <div class="proyecto-header">
-              <i class="bi bi-briefcase icono-min"></i>
-              <span class="proyecto-titulo">AlvaroG</span>
+              <i class="bi bi-cup-hot icono-min"></i>
+              <span class="proyecto-titulo">Entrantes</span>
             </div>
             <div class="tecnologias-texto">
-              <i class="bi bi-filetype-html icono-min"></i><span>HTML</span>
-              <i class="bi bi-palette icono-min"></i><span>CSS</span>
-              <i class="bi bi-lightning-charge icono-min"></i><span>JS</span>
+              <i class="bi bi-star-fill icono-min"></i><span>Populares</span>
+              <i class="bi bi-heart-fill icono-min"></i><span>Favoritos</span>
+              <i class="bi bi-fire icono-min"></i><span>Especiales</span>
             </div>
             <div class="preview-proyecto-wrapper">
               <div class="preview-proyecto-static">
                 <div>
-                  <i class="bi bi-globe icono-min preview-icon"></i>
-                  <p>Vista previa disponible<br />en el enlace del proyecto</p>
+                  <i class="bi bi-bowl-hot icono-min preview-icon"></i>
+                  <p>Deliciosos entrantes<br />para abrir el apetito</p>
                 </div>
               </div>
             </div>
             <p class="proyecto-desc">
               <i class="bi bi-card-text icono-min"></i> 
-              <span class="desc-highlight">Osteópata especializado en medicina china</span><br>
-              Osteopatía • Acupuntura • Moxibustión • Vendaje neuromuscular<br>
-              <small>Sistema de bonos y reservas por WhatsApp</small>
+              <span class="desc-highlight">Selección de entrantes frescos y sabrosos</span><br>
+              Hummus casero • Croquetas artesanales • Ensaladas frescas<br>
+              <small>Desde 4€ - Perfectos para compartir</small>
             </p>
             <a
-              href="https://alvarogarciaosteopata.es/"
+              href="#entrantes"
               class="btn-minimal-link"
-              target="_blank"
-              ><i class="bi bi-box-arrow-up-right icono-min"></i> Ver
-              proyecto</a
+              ><i class="bi bi-arrow-right icono-min"></i> Ver
+              entrantes</a
+            >
+          </div>
+          
+          <div class="proyecto-card minimal">
+            <div class="proyecto-header">
+              <i class="bi bi-egg-fried icono-min"></i>
+              <span class="proyecto-titulo">Platos Principales</span>
+            </div>
+            <div class="tecnologias-texto">
+              <i class="bi bi-award-fill icono-min"></i><span>Chef</span>
+              <i class="bi bi-stars icono-min"></i><span>Premium</span>
+              <i class="bi bi-thermometer-sun icono-min"></i><span>Caliente</span>
+            </div>
+            <div class="preview-proyecto-wrapper">
+              <div class="preview-proyecto-static">
+                <div>
+                  <i class="bi bi-dish icono-min preview-icon"></i>
+                  <p>Nuestras especialidades<br />más deliciosas</p>
+                </div>
+              </div>
+            </div>
+            <p class="proyecto-desc">
+              <i class="bi bi-card-text icono-min"></i> 
+              <span class="desc-highlight">Platos principales elaborados con ingredientes frescos</span><br>
+              Paellas • Carnes a la brasa • Pescados frescos • Pasta artesanal<br>
+              <small>Desde 12€ - Recetas tradicionales con toque moderno</small>
+            </p>
+            <a
+              href="#principales"
+              class="btn-minimal-link"
+              ><i class="bi bi-arrow-right icono-min"></i> Ver
+              principales</a
+            >
+          </div>
+          
+          <div class="proyecto-card minimal">
+            <div class="proyecto-header">
+              <i class="bi bi-cake2 icono-min"></i>
+              <span class="proyecto-titulo">Postres</span>
+            </div>
+            <div class="tecnologias-texto">
+              <i class="bi bi-heart icono-min"></i><span>Dulce</span>
+              <i class="bi bi-house-heart icono-min"></i><span>Casero</span>
+              <i class="bi bi-snow icono-min"></i><span>Fresco</span>
+            </div>
+            <div class="preview-proyecto-wrapper">
+              <div class="preview-proyecto-static">
+                <div>
+                  <i class="bi bi-cake icono-min preview-icon"></i>
+                  <p>Final perfecto<br />para tu comida</p>
+                </div>
+              </div>
+            </div>
+            <p class="proyecto-desc">
+              <i class="bi bi-card-text icono-min"></i> 
+              <span class="desc-highlight">Postres artesanales elaborados diariamente</span><br>
+              Tiramisú • Tarta de queso • Helados caseros • Fruta fresca<br>
+              <small>Desde 5€ - Endulza tu experiencia</small>
+            </p>
+            <a
+              href="#postres"
+              class="btn-minimal-link"
+              ><i class="bi bi-arrow-right icono-min"></i> Ver
+              postres</a
             >
           </div>
         </div>
@@ -210,48 +266,48 @@
 
       <section class="servicios minimal" id="servicios">
         <h2 class="section-title">
-          <i class="bi bi-briefcase icono-min"></i>
-          Servicios
+          <i class="bi bi-menu-button-wide icono-min"></i>
+          Nuestros Servicios
         </h2>
         <div class="precios-grid minimal">
           <div class="precio-card minimal precio-popular">
             <div class="precio-icono">
-              <i class="bi bi-globe icono-min"></i>
+              <i class="bi bi-qr-code icono-min"></i>
             </div>
-            <h3>Página web</h3>
+            <h3>Menú QR Digital</h3>
             <p class="precio-desc">
-              <i class="bi bi-laptop icono-min"></i> Web profesional, responsive
-              y optimizada para tu negocio o marca personal.
+              <i class="bi bi-phone icono-min"></i> Accede a nuestra carta completa 
+              escaneando el código QR en tu mesa.
             </p>
           </div>
           <div class="precio-card minimal">
             <div class="precio-icono">
-              <i class="bi bi-hdd-network icono-min"></i>
+              <i class="bi bi-truck icono-min"></i>
             </div>
-            <h3>Servidor + gestión</h3>
+            <h3>Delivery</h3>
             <p class="precio-desc">
-              <i class="bi bi-gear icono-min"></i> Incluye hosting, dominio y
-              panel de gestión personalizado.
+              <i class="bi bi-clock icono-min"></i> Pedidos a domicilio en 30-45 min.
+              Envío gratuito en pedidos superiores a 20€.
             </p>
           </div>
           <div class="precio-card minimal">
             <div class="precio-icono">
-              <i class="bi bi-brush icono-min"></i>
+              <i class="bi bi-calendar-check icono-min"></i>
             </div>
-            <h3>Redes sociales, logotipo y marca</h3>
+            <h3>Reservas</h3>
             <p class="precio-desc">
-              <i class="bi bi-person-badge icono-min"></i> Diseño de logotipo,
-              branding y creación de perfiles sociales profesionales.
+              <i class="bi bi-people icono-min"></i> Reserva tu mesa para eventos especiales
+              o cenas románticas. Llamadas o WhatsApp.
             </p>
           </div>
           <div class="precio-card minimal precio-otros">
             <div class="precio-icono">
-              <i class="bi bi-stars icono-min"></i>
+              <i class="bi bi-gift icono-min"></i>
             </div>
-            <h3>Otros / A medida</h3>
+            <h3>Eventos Especiales</h3>
             <p class="precio-desc">
-              <i class="bi bi-chat-dots icono-min"></i> Soluciones
-              personalizadas, consúltame sin compromiso.
+              <i class="bi bi-star icono-min"></i> Celebraciones, cumpleaños y eventos empresariales.
+              Menús personalizados disponibles.
             </p>
           </div>
         </div>
@@ -259,9 +315,9 @@
           <button
             class="btn-minimal-hero btn-precio-contacto"
             onclick="document.getElementById('btn-contacto').click()"
-            aria-label="Contactar para solicitar servicios"
+            aria-label="Contactar restaurante"
           >
-            <i class="bi bi-chat-dots icono-min"></i> Contacta
+            <i class="bi bi-telephone icono-min"></i> Contactar
             <span class="arrow-icon" aria-hidden="true">→</span>
           </button>
         </div>
@@ -269,40 +325,45 @@
 
       <section class="certificados minimal fadein-on-scroll" id="certificados">
         <h2 class="section-title">
-          <i class="bi bi-award icono-min"></i>
-          Certificados & Cursos
+          <i class="bi bi-info-circle icono-min"></i>
+          Información del Restaurante
         </h2>
         <div class="certificados-grid">
           <div class="certificado-card minimal">
             <div class="certificado-icono">
-              <i class="bi bi-mortarboard icono-min"></i>
+              <i class="bi bi-geo-alt icono-min"></i>
             </div>
-            <h3>Ciclo Superior de Desarrollo de Aplicaciones Web</h3>
+            <h3>Ubicación y Horarios</h3>
             <p class="certificado-desc">
-              IES El Rincón · Las Palmas de Gran Canaria
+              Calle Gastronómica, 123<br>
+              28001 Madrid, España<br>
+              <strong>Lun-Dom:</strong> 12:00 - 00:00
             </p>
             <a
-              href="https://ieselrincon.es/"
+              href="https://maps.google.com/?q=Restaurante+QR+Madrid"
               class="btn-minimal-link"
               target="_blank"
-              aria-label="Ver información del IES El Rincón"
+              aria-label="Ver ubicación en Google Maps"
             >
-              <i class="bi bi-box-arrow-up-right icono-min"></i> Más información
+              <i class="bi bi-map icono-min"></i> Cómo llegar
             </a>
           </div>
           <div class="certificado-card minimal">
             <div class="certificado-icono">
-              <i class="bi bi-linkedin icono-min"></i>
+              <i class="bi bi-telephone icono-min"></i>
             </div>
-            <h3>Todos los certificados</h3>
-            <p class="certificado-desc">LinkedIn · Perfil completo</p>
+            <h3>Contacto y Reservas</h3>
+            <p class="certificado-desc">
+              <strong>Teléfono:</strong> +34 123 456 789<br>
+              <strong>WhatsApp:</strong> +34 123 456 789<br>
+              <strong>Email:</strong> info@restauranteqr.com
+            </p>
             <a
-              href="https://www.linkedin.com/in/aleixo-fernandez-cuevas-395a52367/"
-              target="_blank"
+              href="tel:+34123456789"
               class="btn-minimal-link"
-              aria-label="Ver todos los certificados en LinkedIn"
+              aria-label="Llamar al restaurante"
             >
-              <i class="bi bi-box-arrow-up-right icono-min"></i> Ver en LinkedIn
+              <i class="bi bi-telephone-fill icono-min"></i> Llamar ahora
             </a>
           </div>
         </div>
@@ -312,29 +373,29 @@
     <footer class="minimal footer-destacado">
       <div>
         <i class="bi bi-c-circle icono-min" aria-hidden="true"></i>
-        <span>2025 Aleixo Fdez Cuevas</span>
+        <span>2025 Restaurante QR</span>
       </div>
       <div class="footer-social">
         <a
-          href="https://www.linkedin.com/in/aleixo-fernandez-cuevas-395a52367/"
-          target="_blank"
-          aria-label="LinkedIn"
-          class="footer-icon-link"
-          ><i class="bi bi-linkedin"></i
-        ></a>
-        <a
-          href="https://github.com/FerCueA"
-          target="_blank"
-          aria-label="GitHub"
-          class="footer-icon-link"
-          ><i class="bi bi-github"></i
-        ></a>
-        <a
-          href="https://www.instagram.com/aleixofdezcuevas/"
+          href="https://www.instagram.com/restauranteqr/"
           target="_blank"
           aria-label="Instagram"
           class="footer-icon-link"
           ><i class="bi bi-instagram"></i
+        ></a>
+        <a
+          href="https://www.facebook.com/restauranteqr/"
+          target="_blank"
+          aria-label="Facebook"
+          class="footer-icon-link"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a
+          href="https://wa.me/34123456789"
+          target="_blank"
+          aria-label="WhatsApp"
+          class="footer-icon-link"
+          ><i class="bi bi-whatsapp"></i
         ></a>
       </div>
     </footer>
