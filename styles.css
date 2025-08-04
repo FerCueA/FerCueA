@@ -263,24 +263,42 @@ nav a:hover {
   font-size: 1.08rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(43, 54, 72, 0.1);
   cursor: pointer;
   min-width: 180px;
   min-height: 48px;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-minimal-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(43, 54, 72, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-minimal-hero:hover::before {
+  left: 100%;
 }
 
 .btn-minimal-hero:hover {
   background: var(--primario);
   color: var(--blanco);
-  box-shadow: 0 2px 16px rgba(43, 54, 72, 0.08);
+  box-shadow: 0 8px 25px rgba(43, 54, 72, 0.2);
+  transform: translateY(-2px);
 }
 
 .arrow-icon {
   font-size: 1.3em;
-  transition: transform 0.18s;
+  transition: transform 0.3s ease;
 }
 
 .btn-minimal-hero:hover .arrow-icon {
@@ -309,25 +327,43 @@ nav a:hover {
 
 .proyecto-card {
   background: var(--gris);
-  border-radius: 14px;
-  box-shadow: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   width: 320px;
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  border: 1px solid #eaeaea;
-  transition: box-shadow 0.18s, transform 0.18s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.proyecto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primario), var(--acento));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.proyecto-card:hover::before {
+  opacity: 1;
 }
 
 .proyecto-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 32px rgba(0, 170, 255, 0.13);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 170, 255, 0.15);
 }
 
 .proyecto-card.minimal:hover {
-  box-shadow: 0 8px 32px rgba(62, 207, 142, 0.13);
-  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 12px 40px rgba(62, 207, 142, 0.15);
+  transform: translateY(-8px);
 }
 
 .proyecto-card img {
@@ -415,18 +451,36 @@ nav a:hover {
   font-size: 1.08rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s, box-shadow 0.18s;
-  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(62, 207, 142, 0.2);
   cursor: pointer;
   min-width: 180px;
   min-height: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-minimal-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-minimal-link:hover::before {
+  left: 100%;
 }
 
 .btn-minimal-link:hover {
   background: var(--secundario);
   color: var(--blanco);
   border-color: var(--secundario);
-  box-shadow: 0 2px 16px rgba(62, 207, 142, 0.08);
+  box-shadow: 0 8px 25px rgba(62, 207, 142, 0.3);
+  transform: translateY(-2px);
 }
 
 .precios {
@@ -443,11 +497,12 @@ nav a:hover {
 }
 
 .precios-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   justify-content: center;
-  align-items: stretch; /* Asegura que todas las cards tengan la misma altura */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .precio-card {
@@ -456,23 +511,37 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   background: var(--blanco);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 4px solid var(--secundario);
-  border-radius: 0 16px 16px 0;
-  box-shadow: 0 2px 16px rgba(34, 34, 59, 0.04);
-  padding: 2rem 1.2rem 1.5rem 1.2rem;
-  min-width: 220px;
-  max-width: 340px;
-  margin: 0 auto;
-  transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
-  gap: 0.7em;
-  height: 100%; /* Ocupa toda la altura disponible */
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(34, 34, 59, 0.06);
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 1em;
+  height: 100%;
+  overflow: hidden;
+}
+
+.precio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secundario), var(--primario));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.precio-card:hover::before {
+  opacity: 1;
 }
 
 .precio-card:hover {
-  box-shadow: 0 8px 32px rgba(0, 87, 184, 0.13);
+  box-shadow: 0 12px 40px rgba(0, 87, 184, 0.15);
   border-color: var(--secundario);
-  z-index: 2;
+  transform: translateY(-8px);
 }
 
 .precio-popular {
@@ -880,37 +949,54 @@ footer.minimal span,
 }
 
 .certificados-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   justify-content: center;
-  align-items: stretch;
   margin-top: 1.5em;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 /* Tamaño uniforme para cards de certificados/cursos */
 .certificado-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: var(--blanco);
-  border-left: 3px solid var(--secundario);
-  border-radius: 0 16px 16px 0;
-  box-shadow: 0 2px 16px rgba(34, 34, 59, 0.04);
-  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
-  min-width: 320px;
-  max-width: 320px;
-  width: 320px;
-  min-height: 320px;
-  height: 320px;
-  margin: 0 auto;
-  gap: 0.7em;
-  transition: box-shadow 0.18s, transform 0.18s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--secundario);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(34, 34, 59, 0.06);
+  padding: 2rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 1em;
   justify-content: space-between;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificado-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secundario), var(--acento));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.certificado-card:hover::before {
+  opacity: 1;
 }
 
 .certificado-card:hover {
-  box-shadow: 0 8px 32px rgba(0, 87, 184, 0.13);
-  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 12px 40px rgba(0, 87, 184, 0.15);
+  transform: translateY(-8px);
 }
 .certificado-icono {
   font-size: 2em;
@@ -1129,6 +1215,22 @@ footer.minimal span,
 [data-theme="dark"] .preview-proyecto-static {
   background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
   color: var(--negro);
+}
+
+[data-theme="dark"] .preview-proyecto-image {
+  background: var(--gris-oscuro);
+}
+
+[data-theme="dark"] .preview-proyecto-image img {
+  background: white;
+}
+
+[data-theme="dark"] .preview-proyecto-image img[src*="restaurante"] {
+  background: white;
+}
+
+[data-theme="dark"] .image-overlay {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 [data-theme="dark"] .tecnologias-texto span {
@@ -1914,12 +2016,27 @@ body.modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5em;
+  gap: 0.6em;
   text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primario), var(--acento));
+  border-radius: 2px;
 }
 
 .section-title .icono-min {
-  font-size: 1.3em;
+  font-size: 1.4em;
+  color: var(--primario);
 }
 
 .preview-proyecto-iframe {
@@ -1951,6 +2068,66 @@ body.modal-open {
 
 .preview-proyecto-static p {
   margin: 0;
+}
+
+/* Estilos para las imágenes de preview de proyectos */
+.preview-proyecto-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--gris-claro);
+}
+
+.preview-proyecto-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  background: white;
+  padding: 5px;
+}
+
+/* Estilo específico para la imagen del restaurante (QR) */
+.preview-proyecto-image img[src*="restaurante"] {
+  object-fit: contain;
+  background: white;
+  padding: 10px;
+}
+
+.preview-proyecto-image:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.preview-proyecto-image:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay i {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.image-overlay span {
+  font-weight: 500;
 }
 
 /* Mejoras visuales para dar más vida al portfolio */
@@ -2113,18 +2290,20 @@ body.modal-open {
 /* Separadores visuales sutiles */
 section.minimal {
   position: relative;
+  padding: 4rem 1rem;
+  margin-bottom: 2rem;
 }
 
 section.minimal:not(:last-child)::after {
   content: '';
   position: absolute;
-  bottom: -2rem;
+  bottom: -1rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
+  width: 100px;
+  height: 1px;
   background: linear-gradient(to right, transparent, var(--secundario), transparent);
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 /* Header simplificado solo con el nombre */
@@ -2406,6 +2585,60 @@ html {
   border-radius: 50%;
   animation: float 8s ease-in-out infinite reverse;
   z-index: 1;
+}
+
+/* Mejoras adicionales de UI/UX */
+
+/* Suavizar las transiciones de scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mejorar la legibilidad del texto */
+p, .proyecto-desc, .precio-desc, .certificado-desc {
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+/* Mejorar los íconos con una sutil animación */
+.icono-min {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.proyecto-card:hover .icono-min,
+.precio-card:hover .icono-min,
+.certificado-card:hover .icono-min {
+  transform: scale(1.1);
+  color: var(--acento);
+}
+
+/* Mejorar los títulos de proyectos */
+.proyecto-titulo {
+  font-weight: 600;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+}
+
+/* Agregar un efecto sutil a las tecnologías */
+.tecnologias-texto span {
+  transition: all 0.2s ease;
+}
+
+.tecnologias-texto span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(62, 207, 142, 0.2);
+}
+
+/* Mejorar la accesibilidad con focus visible */
+*:focus-visible {
+  outline: 2px solid var(--primario);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scroll suave para elementos internos */
+.dialogo-contacto {
+  scroll-behavior: smooth;
 }
 
 @keyframes float {
