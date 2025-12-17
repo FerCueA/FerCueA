@@ -1,6 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Open+Sans:wght@400;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Open+Sans:wght@400;600&display=swap");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 :root {
   --primario: #6366f1; /* violeta vibrante */
   --secundario: #8b5cf6; /* violeta claro */
@@ -1520,25 +1518,6 @@ footer.minimal span,
   }
 }
 
-/* Cursor personalizado */
-.custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background: var(--primario);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: all 0.1s ease;
-  opacity: 0.6;
-  mix-blend-mode: difference;
-}
-
-.custom-cursor.active {
-  transform: scale(2);
-  background: var(--acento);
-}
-
 /* Progress bar de scroll */
 .scroll-progress {
   position: fixed;
@@ -1653,10 +1632,6 @@ footer.minimal span,
     left: 20px;
     width: 45px;
     height: 45px;
-  }
-  
-  .custom-cursor {
-    display: none;
   }
   
   .toast {

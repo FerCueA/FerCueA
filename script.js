@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let toastQueue = [];
   let isProcessingToasts = false;
   let particleSystem = null;
-  let customCursor = null;
 
   // ========================================
   // SISTEMA DE NOTIFICACIONES TOAST
@@ -632,8 +631,8 @@ document.addEventListener("DOMContentLoaded", function () {
       particleSystem = new ParticleSystem(particlesContainer);
     }
     
-    // Inicializar cursor personalizado
-    customCursor = new CustomCursor();
+    // Cursor personalizado desactivado para mejorar rendimiento
+    // customCursor = new CustomCursor();
     
     // Event listeners para scroll
     window.addEventListener('scroll', () => {
