@@ -336,17 +336,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const preloader = document.getElementById('preloader');
     if (!preloader) return;
     
+    // Ocultar preloader inmediatamente para carga rápida
     setTimeout(() => {
       preloader.classList.add('fade-out');
       
       setTimeout(() => {
         preloader.style.display = 'none';
-        
-        // Mostrar contenido con animación
         document.body.classList.add('loaded');
-        
-      }, 500);
-    }, 1000);
+      }, 200);
+    }, 100);
   }
 
   // ===== TEMA OSCURO/CLARO =====
@@ -625,11 +623,11 @@ document.addEventListener("DOMContentLoaded", function () {
   initLogoAnimation();
 
   function initAdvancedFeatures() {
-    // Inicializar sistema de partículas
-    const particlesContainer = document.getElementById('particles-container');
-    if (particlesContainer) {
-      particleSystem = new ParticleSystem(particlesContainer);
-    }
+    // Sistema de partículas desactivado para mejorar rendimiento
+    // const particlesContainer = document.getElementById('particles-container');
+    // if (particlesContainer) {
+    //   particleSystem = new ParticleSystem(particlesContainer);
+    // }
     
     // Cursor personalizado desactivado para mejorar rendimiento
     // customCursor = new CustomCursor();
