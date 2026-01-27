@@ -57,6 +57,9 @@
     
     <!-- CSS personalizado para animaciones -->
       <link rel="stylesheet" href="styles.css" />
+
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <!-- SEO Mejorado -->
     <meta
@@ -241,6 +244,57 @@
               </a>
             </div>
           </div>
+          <!-- Proyecto Duit -->
+          <div class="proyecto-card bg-white dark:bg-violeta-oscuro rounded-2xl overflow-hidden shadow-lg border-l-4 border-acento hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+            <div class="proyecto-header p-6 pb-4 flex items-center gap-3">
+              <i class="bi bi-cash-coin text-2xl text-acento dark:text-acento-dark"></i>
+              <span class="proyecto-titulo font-display text-2xl font-bold text-acento dark:text-acento-dark">Duit</span>
+            </div>
+            <div class="tecnologias-texto px-6 pb-4 flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1 bg-gradient-to-r from-acento to-yellow-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                <i class="bi bi-filetype-html"></i>HTML
+              </span>
+              <span class="inline-flex items-center gap-1 bg-gradient-to-r from-acento to-yellow-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                <i class="bi bi-palette"></i>CSS
+              </span>
+              <span class="inline-flex items-center gap-1 bg-gradient-to-r from-acento to-yellow-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                <i class="bi bi-lightning-charge"></i>JS
+              </span>
+            </div>
+            <div class="preview-proyecto-wrapper px-6 pb-4">
+              <div class="preview-proyecto-image relative overflow-hidden rounded-xl group">
+                <img src="img/duit.png" alt="Vista previa del proyecto Duit" loading="lazy" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="image-overlay absolute inset-0 bg-acento bg-opacity-90 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <i class="bi bi-eye text-white text-3xl"></i>
+                  <span class="text-white font-semibold text-lg">Ver proyecto</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 pt-0 space-y-4">
+              <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <i class="bi bi-card-text text-acento"></i> 
+                <span class="font-semibold text-acento dark:text-acento-dark">Gestor de finanzas personales</span><br>
+                Control de gastos • Ingresos • Estadísticas<br>
+                <small class="text-sm opacity-75">App web para llevar tus cuentas al día</small>
+              </p>
+              <div class="flex gap-4">
+                <a
+                  href="https://duit-fercuea.netlify.app/"
+                  class="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-fondo-oscuro border-2 border-acento text-acento rounded-full hover:bg-acento hover:text-white transition-all duration-300 hover:scale-105 font-semibold"
+                  target="_blank"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i> Ver web
+                </a>
+                <a
+                  href="https://github.com/FerCueA/Duit"
+                  class="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-fondo-oscuro border-2 border-gray-400 text-gray-700 dark:text-gray-200 rounded-full hover:bg-gray-700 hover:text-white transition-all duration-300 hover:scale-105 font-semibold"
+                  target="_blank"
+                >
+                  <i class="bi bi-github"></i> Repo
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -316,80 +370,81 @@
           <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg">Herramientas y tecnologías con las que trabajo</p>
         </div>
         <div class="tecnologias-grid max-w-5xl mx-auto grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-html5-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">HTML5</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-css3-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">CSS3</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-javascript-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">JavaScript</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-git-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Git</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-github-original text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 dark:invert"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">GitHub</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-bootstrap-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Bootstrap</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-tailwindcss-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Tailwind CSS</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-spring-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Spring Boot</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://www.thymeleaf.org/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="bi bi-file-earmark-text text-5xl text-green-700 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Thymeleaf</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-mysql-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">MySQL</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://trello.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-trello-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Trello</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="bi bi-server text-5xl text-teal-500 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Netlify</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-supabase-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Supabase</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-figma-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Figma</span>
-          </div>
-          
-          <div class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+          </a>
+          <a href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
             <i class="devicon-linux-plain text-5xl dark:text-yellow-400 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
             <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Linux Mint</span>
-          </div>
+          </a>
+          <!-- Koyeb -->
+          <a href="https://www.koyeb.com/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+            <img src="img/koyeb.svg" alt="Koyeb logo" class="h-12 w-12 object-contain mb-2" loading="lazy" />
+            <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Koyeb</span>
+          </a>
+          <!-- Neon -->
+          <a href="https://neon.tech/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+            <img src="img/neon.svg" alt="Neon logo" class="h-12 w-12 object-contain mb-2" loading="lazy" />
+            <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Neon</span>
+          </a>
+          <!-- PostgreSQL -->
+          <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer" class="tech-badge bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-secundario hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-3 group">
+            <i class="devicon-postgresql-plain colored text-5xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"></i>
+            <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">PostgreSQL</span>
+          </a>
         </div>
       </section>
 
@@ -422,6 +477,59 @@
                 />
               </div>
               <div class="form-group">
+          <!-- Proyecto Duit -->
+          <div class="proyecto-card bg-white dark:bg-violeta-oscuro rounded-2xl overflow-hidden shadow-lg border-l-4 border-acento hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+            <div class="proyecto-header p-6 pb-4 flex items-center gap-3">
+              <i class="bi bi-cash-coin text-2xl text-acento"></i>
+              <span class="proyecto-titulo font-display text-2xl font-bold text-acento">Duit</span>
+            </div>
+            <div class="tecnologias-texto px-6 pb-4 flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1 bg-gradient-to-r from-acento to-yellow-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                <i class="bi bi-filetype-html"></i>HTML
+              </span>
+              <span class="inline-flex items-center gap-1 bg-gradient-to-r from-acento to-yellow-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                <i class="bi bi-palette"></i>CSS
+              </span>
+              <span class="inline-flex items-center gap-1 bg-gradient-to-r from-acento to-yellow-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                <i class="bi bi-lightning-charge"></i>JS
+              </span>
+            </div>
+            <div class="preview-proyecto-wrapper px-6 pb-4">
+              <div class="preview-proyecto-image relative overflow-hidden rounded-xl group">
+                <img src="https://raw.githubusercontent.com/FerCueA/Duit/main/public/duit-logo.png" alt="Logo Duit" loading="lazy" class="w-full h-auto object-contain bg-white p-6 transition-transform duration-500 group-hover:scale-110" style="max-height:180px;">
+                <div class="image-overlay absolute inset-0 bg-acento bg-opacity-90 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <i class="bi bi-eye text-white text-3xl"></i>
+                  <span class="text-white font-semibold text-lg">Ver proyecto</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 pt-0 space-y-4">
+              <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <i class="bi bi-card-text text-acento"></i>
+                <span class="font-semibold text-acento">Gestor de finanzas personales simple y visual</span><br>
+                Controla tus gastos e ingresos de forma intuitiva.<br>
+                <small class="text-sm opacity-75">Open Source · Web App</small>
+              </p>
+              <div class="flex flex-col gap-2">
+                <a
+                  href="https://duit.vercel.app/"
+                  class="inline-flex items-center gap-2 px-6 py-3 bg-acento text-white rounded-full hover:bg-yellow-500 transition-all duration-300 hover:scale-105 font-semibold justify-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i> Ir a la web
+                </a>
+                <a
+                  href="https://github.com/FerCueA/Duit"
+                  class="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-fondo-oscuro border-2 border-acento text-acento rounded-full hover:bg-acento hover:text-white transition-all duration-300 hover:scale-105 font-semibold justify-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="bi bi-github"></i> Ver repositorio
+                </a>
+              </div>
+            </div>
+          </div>
                 <label for="email" class="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-200 mb-2">
                   <i class="bi bi-envelope text-primario"></i>
                   Email
@@ -531,72 +639,105 @@
           </div>
         </div>
         <!-- Certificados PDF -->
-        <div class="certificados-pdf-grid max-w-4xl mx-auto mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <a href="certificaciones/certificado_curso_de_flexbox_y_css_grid.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Flexbox y CSS Grid</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_curso_de_html5_y_css3.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">HTML5 y CSS3</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_curso_de_manipulación_del_dom_desde_javascript.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Manipulación del DOM JS</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_curso_de_maquetación_web_con_css.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Maquetación Web con CSS</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_curso_de_patrones_de_diseño_con_javascript.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Patrones de Diseño JS</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_curso_de_responsive_web_design.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Responsive Web Design</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_especialización_en_javascript__asincronía_prototipos_y_clases.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">JS: Asincronía, Prototipos y Clases</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Especialización</span>
-          </a>
-          <a href="certificaciones/certificado_fundamentos_de_javascript.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Fundamentos de JavaScript</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_java_desde_0__introducción.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Java desde 0: Introducción</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_java_desde_0__orientación_a_objetos.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Java desde 0: OOP</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_onboarding_de_becas_openwebinars.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Onboarding Becas OpenWebinars</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Certificado</span>
-          </a>
-          <a href="certificaciones/certificado_programación_asíncrona_con_promises_en_javascript.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">JS: Promises y Async</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
-          <a href="certificaciones/certificado_transformaciones_transiciones_y_animaciones_con_css3.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
-            <span class="font-semibold text-primario dark:text-primario-dark">Animaciones con CSS3</span>
-            <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
-          </a>
+        <!-- Carrusel Swiper para certificados PDF -->
+        <div class="swiper certificados-swiper max-w-4xl mx-auto mt-12">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_curso_de_flexbox_y_css_grid.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Flexbox y CSS Grid</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_curso_de_html5_y_css3.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">HTML5 y CSS3</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_curso_de_manipulación_del_dom_desde_javascript.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Manipulación del DOM JS</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_curso_de_maquetación_web_con_css.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Maquetación Web con CSS</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_curso_de_patrones_de_diseño_con_javascript.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Patrones de Diseño JS</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_curso_de_responsive_web_design.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Responsive Web Design</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_especialización_en_javascript__asincronía_prototipos_y_clases.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">JS: Asincronía, Prototipos y Clases</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Especialización</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_fundamentos_de_javascript.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Fundamentos de JavaScript</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_java_desde_0__introducción.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Java desde 0: Introducción</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_java_desde_0__orientación_a_objetos.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Java desde 0: OOP</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_onboarding_de_becas_openwebinars.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Onboarding Becas OpenWebinars</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Certificado</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_programación_asíncrona_con_promises_en_javascript.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">JS: Promises y Async</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="certificaciones/certificado_transformaciones_transiciones_y_animaciones_con_css3.pdf" target="_blank" class="certificado-pdf-card bg-white dark:bg-violeta-oscuro rounded-2xl p-6 shadow-md border-l-4 border-acento hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+                <i class="bi bi-file-earmark-pdf text-4xl text-acento mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-semibold text-primario dark:text-primario-dark">Animaciones con CSS3</span>
+                <span class="text-xs text-gray-500 dark:text-gray-300 mt-1">Curso</span>
+              </a>
+            </div>
+          </div>
+          <!-- Controles de navegación -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
         </div>
         </div>
       </section>
@@ -642,5 +783,28 @@
     <!-- Notificaciones y animaciones eliminadas -->
 
     <script src="script.js"></script>
+      <!-- Swiper.js CDN -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+      <script>
+        // Inicializar Swiper para certificados
+        new Swiper('.certificados-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+          }
+        });
+      </script>
   </body>
 </html>

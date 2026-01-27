@@ -1,0 +1,11 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M24 4L44 44H4L24 4Z" fill="url(#koyeb-gradient)"/>
+    <defs>
+      <linearGradient id="koyeb-gradient" x1="24" y1="4" x2="24" y2="44" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#6C47FF"/>
+        <stop offset="1" stop-color="#00E0CA"/>
+      </linearGradient>
+    </defs>
+  </g>
+</svg>
