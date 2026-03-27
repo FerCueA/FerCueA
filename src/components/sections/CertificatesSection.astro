@@ -1,0 +1,150 @@
+---
+import { certificates } from '../../data/portfolio';
+import type { Certificate as PortfolioCertificate } from '../../data/portfolio';
+import SectionIntro from '../ui/SectionIntro.astro';
+
+const certificateCategories = [
+	'Todos',
+	...new Set(certificates.map((certificate: PortfolioCertificate) => certificate.category)),
+];
+---
+
+<section id="certificados" class="py-10 lg:py-12">
+	<div class="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+		<div>
+			<SectionIntro
+				kicker="Certificados"
+				title="Credenciales y formacion"
+				description="La seccion ahora filtra por tema y usa un carrusel compacto para mantener visibles tus credenciales sin romper el ritmo de la portada."
+			/>
+			<div class="-mt-2 flex flex-wrap gap-2" data-certificate-filters>
+				{certificateCategories.map((category, index) => (
+					<button
+						type="button"
+						data-filter={category}
+						class:list={[
+							'rounded-full border px-4 py-2 text-sm transition',
+							index === 0
+								? 'border-gold-main/30 bg-gold-main/10 text-violet-deep'
+								: 'border-ink/8 bg-paper/85 text-ink/65 hover:border-gold-main/20 hover:text-violet-deep',
+						]}
+					>
+						{category}
+					</button>
+				))}
+			</div>
+		</div>
+
+		<div class="flex items-center gap-3 lg:pb-8">
+			<span class="rounded-full border border-gold-main/20 bg-gold-main/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-violet-deep">
+				{certificates.length} certificados
+			</span>
+			<div class="flex gap-2" data-carousel-root>
+				<button
+					type="button"
+					data-carousel-prev
+					class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/8 bg-paper/90 text-ink transition hover:border-gold-main/30 hover:text-gold-main"
+					aria-label="Ver certificados anteriores"
+				>
+					<span aria-hidden="true">&larr;</span>
+				</button>
+				<button
+					type="button"
+					data-carousel-next
+					class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/8 bg-paper/90 text-ink transition hover:border-gold-main/30 hover:text-gold-main"
+					aria-label="Ver certificados siguientes"
+				>
+					<span aria-hidden="true">&rarr;</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	{certificates.length > 0 ? (
+		<div class="carousel-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4" data-carousel-track>
+			{certificates.map((certificate: PortfolioCertificate) => (
+				<article
+					class="certificate-card rounded-[1.6rem] border border-gold-main/15 bg-linear-to-br from-surface to-paper p-5 shadow-sm shadow-black/5"
+					data-certificate-card
+					data-category={certificate.category}
+				>
+					<div class="flex items-center justify-between gap-3">
+						<p class="text-xs uppercase tracking-[0.22em] text-violet-deep">{certificate.category}</p>
+						<div class="rounded-full border border-ink/8 bg-paper px-3 py-1 text-xs text-ink/55">Credencial</div>
+					</div>
+					<h3 class="mt-4 text-xl font-semibold text-ink">{certificate.title}</h3>
+					<p class="mt-3 min-h-12 text-sm leading-6 text-ink/68">
+						{certificate.issuer ?? 'Certificado en formato PDF listo para abrir desde la web.'}
+					</p>
+					<a
+						href={encodeURI(certificate.href)}
+						target="_blank"
+						rel="noreferrer"
+						class="mt-5 inline-flex rounded-full bg-gold-main px-4 py-2 text-sm font-semibold text-ink transition hover:bg-gold-soft"
+					>
+						Abrir certificado
+					</a>
+				</article>
+			))}
+		</div>
+	) : (
+		<div class="rounded-4xl border border-ink/8 bg-surface p-6 text-ink/70">
+			No se encontraron PDFs en la carpeta publica de certificados.
+		</div>
+	)}
+</section>
+
+<script>
+	const filterGroups = document.querySelectorAll('[data-certificate-filters]');
+	const carouselRoots = document.querySelectorAll('[data-carousel-root]');
+
+	filterGroups.forEach((group) => {
+		const section = group.closest('section');
+		const cards = Array.from(section?.querySelectorAll('[data-certificate-card]') ?? []);
+		const buttons = Array.from(group.querySelectorAll('[data-filter]'));
+		const track = section?.querySelector('[data-carousel-track]');
+
+		buttons.forEach((button) => {
+			button.addEventListener('click', () => {
+				const selectedCategory = button.getAttribute('data-filter') ?? 'Todos';
+
+				buttons.forEach((currentButton) => {
+					const isActive = currentButton === button;
+					currentButton.className = isActive
+						? 'rounded-full border border-gold-main/30 bg-gold-main/10 px-4 py-2 text-sm text-gold-soft transition'
+						: 'rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm text-white/65 transition hover:border-gold-main/20 hover:text-gold-soft';
+				});
+
+				cards.forEach((card) => {
+					const matches = selectedCategory === 'Todos' || card.getAttribute('data-category') === selectedCategory;
+					card.toggleAttribute('hidden', !matches);
+				});
+
+				if (track instanceof HTMLElement) {
+					track.scrollTo({ left: 0, behavior: 'smooth' });
+				}
+			});
+		});
+	});
+
+	carouselRoots.forEach((root) => {
+		const section = root.closest('section');
+		const track = section?.querySelector('[data-carousel-track]');
+		const prevButton = root.querySelector('[data-carousel-prev]');
+		const nextButton = root.querySelector('[data-carousel-next]');
+
+		if (!(track instanceof HTMLElement) || !(prevButton instanceof HTMLButtonElement) || !(nextButton instanceof HTMLButtonElement)) {
+			return;
+		}
+
+		const getOffset = () => Math.max(track.clientWidth * 0.82, 280);
+
+		prevButton.addEventListener('click', () => {
+			track.scrollBy({ left: -getOffset(), behavior: 'smooth' });
+		});
+
+		nextButton.addEventListener('click', () => {
+			track.scrollBy({ left: getOffset(), behavior: 'smooth' });
+		});
+	});
+</script>

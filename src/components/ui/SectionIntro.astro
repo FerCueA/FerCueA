@@ -1,0 +1,21 @@
+---
+interface Props {
+	kicker: string;
+	title: string;
+	description?: string;
+	align?: 'left' | 'between';
+}
+
+const { kicker, title, description, align = 'left' } = Astro.props;
+---
+
+<div class:list={[
+	'mb-8 gap-6',
+	align === 'between' ? 'flex flex-col items-start justify-between lg:flex-row lg:items-end' : '',
+]}>
+	<div>
+		<p class="text-sm uppercase tracking-[0.26em] text-gold-soft">{kicker}</p>
+		<h2 class="mt-2 font-serif text-4xl text-ink">{title}</h2>
+	</div>
+	{description && <p class="max-w-2xl text-sm leading-7 text-ink/62">{description}</p>}
+</div>

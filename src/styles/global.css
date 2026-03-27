@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
+@import "tailwindcss";
+
+@theme {
+	--color-ink: #1f2433;
+	--color-violet-deep: #5f4b78;
+	--color-violet-main: #8c6f9d;
+	--color-violet-soft: #dccfe4;
+	--color-gold-main: #c99b45;
+	--color-gold-soft: #ecd9aa;
+	--color-paper: #f7f3eb;
+	--color-surface: #fffaf2;
+	--color-mist: #ece3d7;
+	--font-sans: "Space Grotesk", sans-serif;
+	--font-serif: "Fraunces", serif;
+}
+
+:root {
+	color-scheme: light;
+	background:
+		radial-gradient(circle at top left, rgba(201, 155, 69, 0.12), transparent 26%),
+		radial-gradient(circle at 82% 16%, rgba(140, 111, 157, 0.16), transparent 28%),
+		linear-gradient(180deg, #fbf7f0 0%, #f6efe5 54%, #f3eadf 100%);
+	background-color: #f7f3eb;
+	font-family: "Space Grotesk", sans-serif;
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100vh;
+	background: transparent;
+	color: var(--color-paper);
+}
+
+.carousel-scrollbar {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(201, 155, 69, 0.55) rgba(31, 36, 51, 0.08);
+}
+
+.carousel-scrollbar::-webkit-scrollbar {
+	height: 10px;
+}
+
+.carousel-scrollbar::-webkit-scrollbar-track {
+	background: rgba(31, 36, 51, 0.08);
+	border-radius: 999px;
+}
+
+.carousel-scrollbar::-webkit-scrollbar-thumb {
+	background: rgba(201, 155, 69, 0.55);
+	border-radius: 999px;
+}
+
+.certificate-card {
+	flex: 0 0 86%;
+	scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+	.certificate-card {
+		flex-basis: calc(50% - 0.625rem);
+	}
+}
+
+@media (min-width: 1024px) {
+	.certificate-card {
+		flex-basis: calc(33.333% - 0.85rem);
+	}
+}
+
+::selection {
+	background: rgba(201, 155, 69, 0.24);
+	color: #1f2433;
+}

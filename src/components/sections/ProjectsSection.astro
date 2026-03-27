@@ -1,0 +1,68 @@
+---
+import { projects } from '../../data/portfolio';
+import SectionIntro from '../ui/SectionIntro.astro';
+---
+
+<section id="proyectos" class="py-12 lg:py-16">
+	<SectionIntro
+		kicker="Proyectos"
+		title="Proyectos seleccionados"
+		description="Una muestra breve de proyectos reales donde el objetivo fue mejorar presencia, orden, claridad de oferta y solidez tecnica."
+		align="between"
+	/>
+
+	<div class="grid gap-6 lg:grid-cols-2">
+		{projects.map((project, index) => (
+			<article class="group rounded-[1.75rem] border border-ink/8 bg-surface/90 p-6 shadow-sm shadow-black/5 transition duration-300 hover:-translate-y-1 hover:border-gold-main/30 hover:shadow-lg hover:shadow-black/8">
+				<div class="relative overflow-hidden rounded-3xl border border-ink/8 bg-paper/80 p-4">
+					<div class="absolute inset-0 bg-linear-to-br from-gold-main/18 via-transparent to-violet-soft/18 opacity-80"></div>
+					<div class="relative rounded-[1.4rem] border border-ink/8 bg-surface/90 p-4 shadow-lg shadow-black/8">
+						<div class="flex items-center justify-between text-[11px] uppercase tracking-[0.22em] text-ink/45">
+							<span>{project.category}</span>
+							<span>{String(index + 1).padStart(2, '0')}</span>
+						</div>
+						<div class="mt-4 grid gap-3">
+							<div class="h-3 w-24 rounded-full bg-gold-main/80"></div>
+							<div class="h-3 w-40 rounded-full bg-violet-main/30"></div>
+							<div class="h-24 rounded-2xl border border-ink/8 bg-paper"></div>
+						</div>
+					</div>
+				</div>
+				<div class="flex items-center justify-between">
+					<span class="rounded-full border border-gold-main/30 bg-gold-main/10 px-3 py-1 text-xs uppercase tracking-[0.24em] text-violet-deep">
+						{project.status}
+					</span>
+					<span class="text-ink/35 transition group-hover:text-gold-main">{project.category}</span>
+				</div>
+				<h3 class="mt-6 text-2xl font-semibold text-ink">{project.title}</h3>
+				<p class="mt-4 leading-7 text-ink/72">{project.description}</p>
+				<p class="mt-4 rounded-2xl border border-ink/8 bg-paper/80 px-4 py-3 text-sm leading-6 text-ink/72">
+					{project.outcome}
+				</p>
+				<div class="mt-6 flex flex-wrap gap-2">
+					{project.stack.map((item) => (
+						<span class="rounded-full border border-violet-main/18 bg-violet-soft/35 px-3 py-1 text-sm text-violet-deep">{item}</span>
+					))}
+				</div>
+				<div class="mt-6 flex gap-3">
+					<a
+						href={project.liveUrl}
+						target="_blank"
+						rel="noreferrer"
+						class="rounded-full bg-gold-main px-4 py-2 text-sm font-semibold text-ink transition hover:bg-gold-soft"
+					>
+						Ver proyecto
+					</a>
+					<a
+						href={project.repoUrl}
+						target="_blank"
+						rel="noreferrer"
+						class="rounded-full border border-ink/10 bg-paper px-4 py-2 text-sm font-semibold text-ink transition hover:border-gold-main/35 hover:bg-surface"
+					>
+						Ver codigo
+					</a>
+				</div>
+			</article>
+		))}
+	</div>
+</section>

@@ -1,0 +1,70 @@
+---
+import { heroStats, profile } from '../../data/portfolio';
+---
+
+<section id="inicio" class="grid items-center gap-8 py-6 lg:grid-cols-[1.2fr_0.8fr] lg:py-10">
+	<div>
+		<p class="mb-4 inline-flex rounded-full border border-gold-main/30 bg-gold-main/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.28em] text-violet-deep">
+			{profile.name}
+		</p>
+		<h1 class="max-w-3xl font-serif text-5xl leading-none text-ink sm:text-6xl lg:text-7xl">
+			{profile.role}
+		</h1>
+		<p class="mt-6 max-w-2xl text-lg leading-8 text-ink/72 sm:text-xl">
+			{profile.intro}
+		</p>
+		<p class="mt-4 max-w-2xl text-base leading-7 text-ink/62 sm:text-lg">
+			Si necesitas una web que proyecte mejor tu negocio, ordene tu presencia digital y te ayude a generar mas confianza, puedo ayudarte a construirla.
+		</p>
+
+		<div class="mt-8 flex flex-wrap gap-4">
+			<a href="#proyectos" class="rounded-full bg-gold-main px-6 py-3 font-semibold text-ink transition hover:bg-gold-soft">
+				Ver trabajos
+			</a>
+			<a href="#contacto" class="rounded-full border border-ink/10 bg-surface px-6 py-3 font-semibold text-ink transition hover:border-gold-main/40 hover:bg-paper">
+				Pedir presupuesto
+			</a>
+		</div>
+
+		<div class="mt-8 grid gap-4 sm:grid-cols-3">
+			{heroStats.map((stat) => (
+				<div class="rounded-3xl border border-ink/8 bg-surface/90 p-5 shadow-sm shadow-black/5 backdrop-blur">
+					<p class="text-3xl font-bold text-gold-main">{stat.value}</p>
+					<p class="mt-2 text-sm text-ink/62">{stat.label}</p>
+				</div>
+			))}
+		</div>
+	</div>
+
+	<div class="relative">
+		<div class="absolute inset-0 rotate-6 rounded-4xl bg-linear-to-br from-gold-main/30 via-transparent to-violet-soft/30 blur-md"></div>
+		<div class="relative overflow-hidden rounded-4xl border border-ink/8 bg-surface/88 p-5 shadow-xl shadow-black/8 backdrop-blur-xl lg:p-6">
+			<div class="flex items-center justify-between border-b border-ink/8 pb-5">
+				<div>
+					<p class="text-sm uppercase tracking-[0.24em] text-gold-soft">Perfil</p>
+					<h2 class="mt-2 font-serif text-3xl text-ink">Presencia digital con estilo</h2>
+				</div>
+				<div class="rounded-full border border-gold-main/35 bg-gold-main/12 px-3 py-1 text-sm text-violet-deep">
+					Disponible
+				</div>
+			</div>
+
+			<div class="mt-6 space-y-4">
+				<div class="rounded-3xl bg-violet-soft/35 p-5">
+					<p class="text-sm uppercase tracking-[0.2em] text-violet-soft">Enfoque</p>
+					<p class="mt-2 text-lg text-ink">Diseño y desarrollo orientados a mejorar imagen, claridad de oferta y capacidad de conversion.</p>
+				</div>
+				<div class="grid gap-4 sm:grid-cols-2">
+					<div class="rounded-3xl border border-ink/8 bg-paper/80 p-5">
+						<p class="text-sm text-ink/55">Especialidad</p>
+						<p class="mt-2 font-semibold text-ink">Landings, webs corporativas, frontend visual y aplicaciones MVC</p>
+					</div>
+					<div class="rounded-3xl border border-ink/8 bg-paper/80 p-5">
+						<p class="text-sm text-ink/55">Estilo visual</p>
+						<p class="mt-2 font-semibold text-ink">Estetica actual, contraste fuerte y lectura clara en movil y desktop</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

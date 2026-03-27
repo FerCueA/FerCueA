@@ -1,0 +1,105 @@
+---
+import { hubSections, profile } from '../../data/portfolio';
+import CertificatesSection from '../sections/credentials/CertificatesSection.astro';
+import ContactSection from '../sections/engagement/ContactSection.astro';
+import HeroSection from '../sections/profile/HeroSection.astro';
+import ProjectsSection from '../sections/work/ProjectsSection.astro';
+import ServicesSection from '../sections/services/ServicesSection.astro';
+import TechnologiesSection from '../sections/expertise/TechnologiesSection.astro';
+---
+
+<div id="section-hub" class="mx-auto min-h-[calc(100vh-2rem)] max-w-300">
+	<section
+		id="front-hero"
+		aria-label="Cabecera del portafolio"
+		class="grid min-h-[calc(100vh-2rem)] place-content-center justify-items-center gap-6 rounded-4xl border border-ink/10 bg-paper/90 px-5 py-8 shadow-[0_20px_46px_rgba(17,20,35,0.09)] transition-all duration-500 sm:px-8"
+	>
+		<h1
+			id="front-name"
+			class="max-w-full whitespace-nowrap text-center font-serif text-[clamp(1.9rem,6.2vw,5.1rem)] leading-none tracking-[0.01em] text-ink transition-all duration-300"
+		>
+			{profile.name}
+		</h1>
+		<nav id="front-nav" aria-label="Secciones principales" class="flex w-full max-w-225 flex-wrap justify-center gap-x-6 gap-y-3">
+			{hubSections.map((section) => (
+				<button
+					type="button"
+					class="menu-option group relative pb-1 text-[clamp(0.92rem,2.1vw,1.02rem)] font-semibold tracking-[0.02em] text-ink/70 transition-colors duration-200 hover:text-ink"
+					data-target={section.id}
+					data-label={section.label}
+					aria-pressed="false"
+				>
+					<span>{section.label}</span>
+					<span class="menu-option-line absolute bottom-0 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-[linear-gradient(90deg,rgba(201,155,69,0.92),rgba(95,75,120,0.82))] transition-transform duration-200"></span>
+				</button>
+			))}
+		</nav>
+	</section>
+
+	<section
+		id="view-stage"
+		aria-live="polite"
+		aria-hidden="true"
+		class="pointer-events-none mt-4 max-h-0 translate-y-4 overflow-hidden opacity-0 transition-all duration-300"
+	>
+		<div class="sticky top-2 z-10 flex items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-paper/90 p-3 backdrop-blur-sm">
+			<button
+				id="back-to-menu"
+				type="button"
+				class="rounded-full border border-ink/15 bg-surface px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-ink/80 transition hover:border-gold-main/40 hover:bg-gold-main/10"
+			>
+				Volver al menu
+			</button>
+			<p id="active-section-label" class="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-ink/55">Selecciona una sección</p>
+		</div>
+
+		<div class="pt-3">
+			<div class="view-panel animate-[fadeIn_280ms_ease]" data-panel="perfil" hidden>
+				<HeroSection />
+			</div>
+			<div class="view-panel animate-[fadeIn_280ms_ease]" data-panel="proyectos" hidden>
+				<ProjectsSection />
+			</div>
+			<div class="view-panel animate-[fadeIn_280ms_ease]" data-panel="servicios" hidden>
+				<ServicesSection />
+			</div>
+			<div class="view-panel animate-[fadeIn_280ms_ease]" data-panel="tecnologias" hidden>
+				<TechnologiesSection />
+			</div>
+			<div class="view-panel animate-[fadeIn_280ms_ease]" data-panel="certificados" hidden>
+				<CertificatesSection />
+			</div>
+			<div class="view-panel animate-[fadeIn_280ms_ease]" data-panel="contacto" hidden>
+				<ContactSection />
+			</div>
+		</div>
+	</section>
+</div>
+
+<script>
+	import {
+		initializeViewState,
+		updateView,
+		runWithTransition,
+	} from '../../utils/viewTransitions';
+
+	const viewState = initializeViewState();
+	const { menuButtons, backButton } = viewState;
+
+	// Setup menu button event listeners
+	menuButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			const target = button.dataset.target;
+			if (!target) return;
+			runWithTransition(() => updateView(viewState, target));
+		});
+	});
+
+	// Setup back button event listener
+	backButton?.addEventListener('click', () => {
+		runWithTransition(() => updateView(viewState, ''));
+	});
+
+	// Initialize with closed view
+	updateView(viewState, '');
+</script>
