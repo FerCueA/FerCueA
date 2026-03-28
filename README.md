@@ -1,208 +1,129 @@
 # FerCueAstro
 
-Portafolio web moderno e interactivo construido con **Astro** y **Tailwind CSS**. Presenta un patrón de hub donde los visitantes pueden explorar diferentes secciones de contenido con transiciones suaves y sin fricciones.
+Portafolio web construido con Astro y Tailwind CSS, diseñado como hub interactivo de secciones. El proyecto prioriza rendimiento, claridad visual y mantenimiento sencillo desde una fuente de datos central.
 
-## Características
+## Qué incluye
 
-- Hub Interactivo - Menú central con navegación fluida entre secciones
-- Tailwind-First - Estilos únicamente con utilidades de Tailwind CSS
-- Responsive Completo - Diseño adaptable a todos los dispositivos
-- Estático & Rápido - HTML puro sin overhead de JavaScript
-- View Transitions - Animaciones nativas del navegador entre vistas
-- Fácil de Mantener - Toda la información centralizada en `portfolio.ts`
-- Arquitectura Limpia - Componentes organizados por dominio, no por tipo
+- Navegación tipo hub con paneles dinámicos
+- Secciones organizadas por dominio: Perfil, Proyectos, Servicios, Tecnologías, Certificados y Contacto
+- Diseño responsive con foco en mobile
+- Transiciones visuales con fallback para dispositivos pequeños y usuarios con reduced motion
+- Contenido centralizado en un único archivo de datos
 
-## Stack Tecnológico
+## Stack
 
-| Herramienta | Versión | Propósito |
-|-----------|---------|----------|
-| **Astro** | 6.1.1 | Framework estático |
-| **Tailwind CSS** | - | Utilidades de estilos |
-| **TypeScript** | - | Type safety |
-| **View Transition API** | - | Animaciones nativas |
+| Herramienta | Versión |
+| --- | --- |
+| Astro | 6.1.1 |
+| Tailwind CSS | 4.2.2 |
+| TypeScript | Incluido vía Astro |
 
-## Estructura del Proyecto
+## Requisitos
 
-```
-src/
-├── pages/
-│   └── index.astro              # Página principal
-├── layouts/
-│   └── MainLayout.astro         # Layout global reutilizable
-├── components/
-│   ├── front/
-│   │   └── PortfolioHub.astro   # Orquestador principal
-│   ├── sections/
-│   │   ├── profile/             # Sección "Perfil"
-│   │   ├── work/                # Sección "Proyectos"
-│   │   ├── services/            # Sección "Servicios"
-│   │   ├── expertise/           # Sección "Tecnologías"
-│   │   ├── credentials/         # Sección "Certificados"
-│   │   └── engagement/          # Sección "Contacto"
-│   ├── ui/                      # Componentes reutilizables
-│   └── layout/                  # Componentes de layout
-├── data/
-│   └── portfolio.ts             # Toda la información del portafolio
-├── utils/
-│   └── viewTransitions.ts       # Lógica de transiciones visuales
-└── styles/
-    └── global.css               # Estilos globales y variables
-```
+- Node.js >= 22.12.0
+- npm
 
-## Inicio Rápido
-
-### Instalación
+## Inicio rápido
 
 ```bash
-# Instalar dependencias
 npm install
-
-# Iniciar servidor de desarrollo
 npm run dev
 ```
 
-El proyecto estará disponible en `http://localhost:4321`
+Aplicación local en http://localhost:4321
 
-### Producción
+## Build y preview
 
 ```bash
-# Compilar para producción
 npm run build
-
-# Preview local del build
 npm run preview
 ```
 
-## Comandos
+## Scripts
 
-| Comando | Descripción |
-|---------|-------------|
-| `npm run dev` | Inicia servidor de desarrollo en `localhost:4321` |
-| `npm run build` | Compila el proyecto a `./dist/` |
-| `npm run preview` | Preview del build compilado |
+| Script | Descripción |
+| --- | --- |
+| npm run dev | Levanta entorno de desarrollo |
+| npm run build | Genera salida estática en dist |
+| npm run preview | Sirve localmente la build de dist |
 
-## Personalizar el Portafolio
+## Estructura principal
 
-### 1. Cambiar Información Personal
-
-Edita `src/data/portfolio.ts`:
-
-```typescript
-export const profile = {
-  name: 'Tu Nombre',
-  role: 'Tu Profesión',
-  intro: 'Brevemente quién eres...',
-};
+```text
+src/
+  components/
+    front/PortfolioHub.astro
+    layout/
+    sections/
+      profile/
+      work/
+      services/
+      expertise/
+      credentials/
+      engagement/
+    ui/
+  data/portfolio.ts
+  layouts/MainLayout.astro
+  pages/index.astro
+  styles/global.css
+  utils/viewTransitions.ts
 ```
 
-### 2. Agregar Proyectos
+## Personalización
 
-```typescript
-export const projects = [
-  {
-    title: 'Mi Proyecto',
-    description: 'Lo que hace...',
-    category: 'Web',
-    status: 'Publicado',
-    stack: ['Astro', 'Tailwind'],
-    liveUrl: 'https://proyecto.com',
-    repoUrl: 'https://github.com/...',
-    outcome: 'Resultado esperado...',
-  },
-  // Más proyectos...
-];
-```
+### 1) Editar contenido
 
-### 3. Cambiar Colores de Tema
+Toda la información editable está en src/data/portfolio.ts:
 
-En `src/styles/global.css`, edita la sección `@theme`:
+- profile
+- navigationLinks y hubSections
+- projects
+- services
+- skillGroups
+- certificates
+- contactLinks
 
-```css
-@theme {
-  --color-gold-main: #c99b45;      /* Acentos principales */
-  --color-violet-deep: #5f4b78;    /* Acentos secundarios */
-  --color-ink: #1f2433;            /* Texto */
-  --color-paper: #f7f3eb;          /* Fondo claro */
-  /* ... más colores */
-}
-```
+### 2) Ajustar estilo visual
 
-### 4. Agregar Nueva Sección Navegable
+Variables de tema global en src/styles/global.css dentro de @theme:
 
-1. Crear carpeta: `src/components/sections/mi-area/`
-2. Crear componente: `MiSection.astro`
-3. Agregar a `portfolio.ts`:
-   ```typescript
-   export const hubSections = [
-     // ...
-     { id: 'miseccion', label: 'Mi Sección' },
-   ];
-   ```
-4. Importar en `PortfolioHub.astro` y agregar el panel correspondiente
+- --color-ink
+- --color-violet-deep
+- --color-gold-main
+- --color-paper
 
-Para detalles completos, consulta [src/components/ARCHITECTURE.md](src/components/ARCHITECTURE.md)
+### 3) Añadir nueva sección al menú
 
-## Documentación
+1. Crear componente de sección en src/components/sections/
+2. Agregar entrada en hubSections en src/data/portfolio.ts
+3. Importar y renderizar el panel en PortfolioHub.astro
 
-- [ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md) - Guía de arquitectura y decisiones técnicas
-- [src/components/ARCHITECTURE.md](src/components/ARCHITECTURE.md) - Documentación detallada de componentes y patrones
+## Comportamiento UX actual
 
-## Conceptos Clave
+- Menú principal con acceso a paneles por botones
+- Botón Volver al menú dentro del stage de contenido
+- Certificados en carrusel horizontal en mobile y grid en tablet/desktop
+- Botones de acceso rápido desde Perfil conectados al sistema de paneles
 
-### Hub Pattern
+## Despliegue
 
-El portafolio funciona como un hub central:
-```
-Pantalla inicial         Pantalla con sección
-┌──────────────────┐    ┌──────────────────┐
-│    Nombre        │    │    Nombre        │
-│  [Perfil]        │ -> │  [Perfil] ✓      │
-│  [Proyectos]     │    │ Contenido de     │
-│  [Servicios]     │    │ la sección...    │
-│  [Contacto]      │    │ [Volver al menú] │
-└──────────────────┘    └──────────────────┘
-```
+Proyecto estático apto para Netlify, Vercel, GitHub Pages u hosting tradicional.
 
-### Tailwind-First
+Configuración base:
 
-Todos los estilos usan clases de Tailwind. Ejemplo:
+- Comando de build: npm run build
+- Carpeta de publicación: dist
 
-```astro
-<h1 class="font-serif text-[clamp(1.9rem,6.2vw,5.1rem)] text-ink">
-  Título responsive
-</h1>
-```
+## Documentación adicional
 
-### Información Centralizada
+- ARCHITECTURE_GUIDE.md
+- src/components/ARCHITECTURE.md
 
-Cambiar contenido es editar JSON en `portfolio.ts`:
+## Notas
 
-```typescript
-// Editar aquí = portafolio actualizado automáticamente
-export const contactLinks = [ ... ]
-export const services = [ ... ]
-export const certificates = [ ... ]
-```
-
-## Deploy
-
-El proyecto genera HTML estático puro. Puedes deployar en cualquier servicio:
-
-- Netlify: Connect repo → build `npm run build` → publish `dist/`
-- Vercel: Seleccionar framework "Other"
-- GitHub Pages: Usar Actions para compilar y publicar
-- Tu host: Subir carpeta `dist/` vía FTP/SFTP
-
-## Contribuir
-
-Este es un proyecto personal. Para mejoras, fork y experimenta libremente.
-
-## Licencia
-
-Proyecto personal. Usa como base para tu portafolio.
+- Si solo necesitas actualizar textos, no hace falta tocar componentes: modifica src/data/portfolio.ts
+- Para cambios de interacción entre paneles, revisar src/utils/viewTransitions.ts y src/components/front/PortfolioHub.astro
 
 ---
 
-Creado con Astro + Tailwind CSS
-
-Última actualización: 27 de marzo de 2026
+Última actualización: 28 de marzo de 2026
