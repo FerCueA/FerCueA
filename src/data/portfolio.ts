@@ -40,7 +40,7 @@ export interface SkillGroup {
 }
 
 export const profile = {
-	name: 'Aleixo Fernandez Cuevas',
+	name: 'Aleixo Fernández Cuevas',
 	role: 'Desarrollador web frontend y full stack',
 	intro:
 		'Creo webs y aplicaciones que no solo se ven bien: también ayudan a vender mejor, transmitir confianza y convertir visitas en contactos reales.',
