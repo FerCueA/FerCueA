@@ -12,19 +12,19 @@ import TechnologiesSection from '../sections/expertise/TechnologiesSection.astro
 	<section
 		id="front-hero"
 		aria-label="Cabecera del portafolio"
-		class="grid min-h-[calc(100vh-2rem)] place-content-center justify-items-center gap-6 rounded-4xl border border-ink/10 bg-paper/90 px-5 py-8 shadow-[0_20px_46px_rgba(17,20,35,0.09)] transition-all duration-500 sm:px-8"
+		class="grid min-h-[calc(100vh-2rem)] place-content-center justify-items-center gap-5 rounded-4xl border border-ink/10 bg-paper/90 px-4 py-7 shadow-[0_10px_24px_rgba(17,20,35,0.07)] transition-all duration-300 sm:gap-6 sm:px-8 sm:py-8 sm:shadow-[0_20px_46px_rgba(17,20,35,0.09)] sm:duration-500"
 	>
 		<h1
 			id="front-name"
-			class="max-w-full whitespace-nowrap text-center font-serif text-[clamp(1.9rem,6.2vw,5.1rem)] leading-none tracking-[0.01em] text-ink transition-all duration-300"
+			class="max-w-full text-center font-serif text-[clamp(1.75rem,8.2vw,5.1rem)] leading-none tracking-[0.01em] text-ink transition-all duration-300 sm:whitespace-nowrap"
 		>
 			{profile.name}
 		</h1>
-		<nav id="front-nav" aria-label="Secciones principales" class="flex w-full max-w-225 flex-wrap justify-center gap-x-6 gap-y-3">
+		<nav id="front-nav" aria-label="Secciones principales" class="flex w-full max-w-225 flex-wrap justify-center gap-x-4 gap-y-2.5 sm:gap-x-6 sm:gap-y-3">
 			{hubSections.map((section) => (
 				<button
 					type="button"
-					class="menu-option group relative pb-1 text-[clamp(0.92rem,2.1vw,1.02rem)] font-semibold tracking-[0.02em] text-ink/70 transition-colors duration-200 hover:text-ink"
+					class="menu-option group relative rounded-full px-2 py-1 text-[clamp(0.88rem,3.6vw,1.02rem)] font-semibold tracking-[0.01em] text-ink/70 transition-colors duration-200 hover:text-ink"
 					data-target={section.id}
 					data-label={section.label}
 					aria-pressed="false"
@@ -40,17 +40,17 @@ import TechnologiesSection from '../sections/expertise/TechnologiesSection.astro
 		id="view-stage"
 		aria-live="polite"
 		aria-hidden="true"
-		class="pointer-events-none mt-4 max-h-0 translate-y-4 overflow-hidden opacity-0 transition-all duration-300"
+		class="pointer-events-none mt-3 max-h-0 translate-y-4 overflow-hidden opacity-0 transition-all duration-300 sm:mt-4"
 	>
-		<div class="sticky top-2 z-10 flex items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-paper/90 p-3 backdrop-blur-sm">
+		<div class="sticky top-2 z-10 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-ink/10 bg-paper/95 p-2.5 sm:flex-nowrap sm:gap-3 sm:bg-paper/90 sm:p-3 sm:backdrop-blur-sm">
 			<button
 				id="back-to-menu"
 				type="button"
-				class="rounded-full border border-ink/15 bg-surface px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-ink/80 transition hover:border-gold-main/40 hover:bg-gold-main/10"
+				class="rounded-full border border-ink/15 bg-surface px-3.5 py-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-ink/80 transition hover:border-gold-main/40 hover:bg-gold-main/10 sm:px-4 sm:text-[0.68rem] sm:tracking-[0.16em]"
 			>
 				Volver al menu
 			</button>
-			<p id="active-section-label" class="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-ink/55">Selecciona una sección</p>
+			<p id="active-section-label" class="text-[0.66rem] font-bold uppercase tracking-[0.14em] text-ink/55 sm:text-[0.72rem] sm:tracking-[0.2em]">Selecciona una sección</p>
 		</div>
 
 		<div class="pt-3">
@@ -90,6 +90,16 @@ import TechnologiesSection from '../sections/expertise/TechnologiesSection.astro
 	menuButtons.forEach((button) => {
 		button.addEventListener('click', () => {
 			const target = button.dataset.target;
+			if (!target) return;
+			runWithTransition(() => updateView(viewState, target));
+		});
+	});
+
+	// Setup quick access buttons inside panels (e.g., Perfil CTAs)
+	const quickAccessButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-open-section]'));
+	quickAccessButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			const target = button.dataset.openSection;
 			if (!target) return;
 			runWithTransition(() => updateView(viewState, target));
 		});

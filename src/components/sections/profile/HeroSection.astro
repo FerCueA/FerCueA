@@ -2,67 +2,93 @@
 import { heroStats, profile } from '../../../data/portfolio';
 ---
 
-<section id="inicio" class="grid items-center gap-8 py-6 lg:grid-cols-[1.2fr_0.8fr] lg:py-10">
-	<div>
-		<p class="mb-4 inline-flex rounded-full border border-gold-main/30 bg-gold-main/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.28em] text-violet-deep">
+<section id="inicio" class="grid items-center gap-7 py-5 sm:py-6 lg:grid-cols-[1.2fr_0.8fr] lg:py-10">
+	<div class="rounded-4xl border border-ink/8 bg-surface/88 p-4 shadow-sm shadow-black/5 sm:p-6 lg:p-7">
+		<p class="mb-4 inline-flex rounded-full border border-gold-main/30 bg-gold-main/10 px-3.5 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.2em] text-violet-deep sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.28em]">
 			{profile.name}
 		</p>
-		<h1 class="max-w-3xl font-serif text-5xl leading-none text-ink sm:text-6xl lg:text-7xl">
+		<h1 class="max-w-3xl font-serif text-[clamp(2rem,9vw,4.4rem)] leading-none text-ink lg:text-7xl">
 			{profile.role}
 		</h1>
-		<p class="mt-6 max-w-2xl text-lg leading-8 text-ink/72 sm:text-xl">
+		<p class="mt-5 max-w-2xl text-base leading-7 text-ink/72 sm:mt-6 sm:text-xl sm:leading-8">
 			{profile.intro}
 		</p>
-		<p class="mt-4 max-w-2xl text-base leading-7 text-ink/62 sm:text-lg">
-			Si necesitas una web que proyecte mejor tu negocio, ordene tu presencia digital y te ayude a generar mas confianza, puedo ayudarte a construirla.
+		<p class="mt-3.5 max-w-2xl text-[0.95rem] leading-6 text-ink/62 sm:mt-4 sm:text-lg sm:leading-7">
+			Si necesitas una web que proyecte mejor tu negocio, ordene tu presencia digital y te ayude a generar más confianza, puedo ayudarte a construirla.
 		</p>
 
-		<div class="mt-8 flex flex-wrap gap-4">
-			<a href="#proyectos" class="rounded-full bg-gold-main px-6 py-3 font-semibold text-ink transition hover:bg-gold-soft">
-				Ver trabajos
-			</a>
-			<a href="#contacto" class="rounded-full border border-ink/10 bg-surface px-6 py-3 font-semibold text-ink transition hover:border-gold-main/40 hover:bg-paper">
-				Pedir presupuesto
-			</a>
+		<div class="mt-5 flex flex-wrap gap-2.5 sm:mt-6 sm:gap-3">
+			<span class="rounded-full border border-violet-main/18 bg-violet-soft/35 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-violet-deep sm:text-xs sm:tracking-[0.2em]">
+				Diseño + desarrollo
+			</span>
+			<span class="rounded-full border border-gold-main/20 bg-gold-main/10 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-violet-deep sm:text-xs sm:tracking-[0.2em]">
+				Enfoque en conversión
+			</span>
+			<span class="rounded-full border border-ink/10 bg-paper/80 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-ink/65 sm:text-xs sm:tracking-[0.2em]">
+				Entrega clara
+			</span>
 		</div>
 
-		<div class="mt-8 grid gap-4 sm:grid-cols-3">
+		<div class="mt-7 grid gap-3 sm:mt-8 sm:grid-cols-2 xl:grid-cols-3">
 			{heroStats.map((stat) => (
-				<div class="rounded-3xl border border-ink/8 bg-surface/90 p-5 shadow-sm shadow-black/5 backdrop-blur">
-					<p class="text-3xl font-bold text-gold-main">{stat.value}</p>
+				<div class="rounded-3xl border border-ink/8 bg-paper/82 p-4 shadow-sm shadow-black/5 sm:p-5">
+					<p class="text-2xl font-bold text-gold-main sm:text-3xl">{stat.value}</p>
 					<p class="mt-2 text-sm text-ink/62">{stat.label}</p>
 				</div>
 			))}
 		</div>
+
+		<div class="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4">
+			<button
+				type="button"
+				data-open-section="proyectos"
+				class="inline-flex justify-center rounded-full bg-gold-main px-5 py-3 text-sm font-semibold text-ink transition hover:bg-gold-soft sm:px-6 sm:text-base"
+			>
+				Ver trabajos
+			</button>
+			<button
+				type="button"
+				data-open-section="contacto"
+				class="inline-flex justify-center rounded-full border border-ink/10 bg-surface px-5 py-3 text-sm font-semibold text-ink transition hover:border-gold-main/40 hover:bg-paper sm:px-6 sm:text-base"
+			>
+				Pedir presupuesto
+			</button>
+		</div>
 	</div>
 
 	<div class="relative">
-		<div class="absolute inset-0 rotate-6 rounded-4xl bg-linear-to-br from-gold-main/30 via-transparent to-violet-soft/30 blur-md"></div>
-		<div class="relative overflow-hidden rounded-4xl border border-ink/8 bg-surface/88 p-5 shadow-xl shadow-black/8 backdrop-blur-xl lg:p-6">
-			<div class="flex items-center justify-between border-b border-ink/8 pb-5">
+		<div class="absolute inset-0 rotate-6 rounded-4xl bg-linear-to-br from-gold-main/26 via-transparent to-violet-soft/24 blur-sm sm:blur-md"></div>
+		<div class="relative overflow-hidden rounded-4xl border border-ink/8 bg-surface/88 p-4 shadow-lg shadow-black/8 sm:p-5 sm:shadow-xl sm:backdrop-blur-xl lg:p-6">
+			<div class="flex flex-wrap items-center justify-between gap-2 border-b border-ink/8 pb-4 sm:gap-3 sm:pb-5">
 				<div>
-					<p class="text-sm uppercase tracking-[0.24em] text-gold-soft">Perfil</p>
-					<h2 class="mt-2 font-serif text-3xl text-ink">Presencia digital con estilo</h2>
+					<p class="text-[0.72rem] uppercase tracking-[0.18em] text-gold-soft sm:text-sm sm:tracking-[0.24em]">Perfil</p>
+					<h2 class="mt-2 font-serif text-2xl text-ink sm:text-3xl">Presencia digital con estilo</h2>
 				</div>
-				<div class="rounded-full border border-gold-main/35 bg-gold-main/12 px-3 py-1 text-sm text-violet-deep">
+				<div class="rounded-full border border-gold-main/35 bg-gold-main/12 px-3 py-1 text-xs text-violet-deep sm:text-sm">
 					Disponible
 				</div>
 			</div>
 
-			<div class="mt-6 space-y-4">
-				<div class="rounded-3xl bg-violet-soft/35 p-5">
-					<p class="text-sm uppercase tracking-[0.2em] text-violet-soft">Enfoque</p>
-					<p class="mt-2 text-lg text-ink">Diseño y desarrollo orientados a mejorar imagen, claridad de oferta y capacidad de conversion.</p>
+			<div class="mt-5 space-y-4 sm:mt-6">
+				<div class="rounded-3xl bg-violet-soft/35 p-4 sm:p-5">
+					<p class="text-[0.72rem] uppercase tracking-[0.16em] text-violet-soft sm:text-sm sm:tracking-[0.2em]">Enfoque</p>
+					<p class="mt-2 text-base text-ink sm:text-lg">Diseño y desarrollo orientados a mejorar imagen, claridad de oferta y capacidad de conversión.</p>
 				</div>
 				<div class="grid gap-4 sm:grid-cols-2">
-					<div class="rounded-3xl border border-ink/8 bg-paper/80 p-5">
+					<div class="rounded-3xl border border-ink/8 bg-paper/80 p-4 sm:p-5">
 						<p class="text-sm text-ink/55">Especialidad</p>
 						<p class="mt-2 font-semibold text-ink">Landings, webs corporativas, frontend visual y aplicaciones MVC</p>
 					</div>
-					<div class="rounded-3xl border border-ink/8 bg-paper/80 p-5">
+					<div class="rounded-3xl border border-ink/8 bg-paper/80 p-4 sm:p-5">
 						<p class="text-sm text-ink/55">Estilo visual</p>
-						<p class="mt-2 font-semibold text-ink">Estetica actual, contraste fuerte y lectura clara en movil y desktop</p>
+						<p class="mt-2 font-semibold text-ink">Estética actual, contraste fuerte y lectura clara en móvil y desktop</p>
 					</div>
+				</div>
+				<div class="rounded-3xl border border-gold-main/20 bg-gold-main/10 p-4">
+					<p class="text-[0.72rem] uppercase tracking-[0.16em] text-violet-deep sm:text-sm">Objetivo de cada proyecto</p>
+					<p class="mt-2 text-sm leading-6 text-ink/75 sm:text-base">
+						Que tu web se vea bien, se entienda rápido y convierta mejor en consultas o ventas.
+					</p>
 				</div>
 			</div>
 		</div>

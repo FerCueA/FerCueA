@@ -1,22 +1,35 @@
 ---
 import { projects } from '../../../data/portfolio';
 import SectionIntro from '../../ui/SectionIntro.astro';
+
+const stackCount = new Set(projects.flatMap((project) => project.stack)).size;
 ---
 
-<section id="proyectos" class="py-12 lg:py-16">
-	<SectionIntro
-		kicker="Proyectos"
-		title="Proyectos seleccionados"
-		description="Una muestra breve de proyectos reales donde el objetivo fue mejorar presencia, orden, claridad de oferta y solidez tecnica."
-		align="between"
-	/>
+<section id="proyectos" class="py-10 sm:py-12 lg:py-16">
+	<div class="mb-6 flex flex-col gap-4 sm:mb-8 sm:gap-5 lg:flex-row lg:items-end lg:justify-between">
+		<div class="lg:max-w-3xl">
+			<SectionIntro
+				kicker="Proyectos"
+				title="Proyectos seleccionados"
+				description="Una muestra breve de proyectos reales donde el objetivo fue mejorar presencia, orden, claridad de oferta y solidez técnica."
+			/>
+		</div>
+		<div class="flex flex-wrap items-center gap-2.5 sm:gap-3 lg:pb-8">
+			<span class="rounded-full border border-gold-main/20 bg-gold-main/10 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-violet-deep sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.22em]">
+				{projects.length} proyectos
+			</span>
+			<span class="rounded-full border border-violet-main/20 bg-violet-soft/35 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-violet-deep sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.22em]">
+				{stackCount} tecnologías
+			</span>
+		</div>
+	</div>
 
-	<div class="grid gap-6 lg:grid-cols-2">
+	<div class="grid gap-5 sm:gap-6 lg:grid-cols-2">
 		{projects.map((project, index) => (
-			<article class="group rounded-[1.75rem] border border-ink/8 bg-surface/90 p-6 shadow-sm shadow-black/5 transition duration-300 hover:-translate-y-1 hover:border-gold-main/30 hover:shadow-lg hover:shadow-black/8">
-				<div class="relative overflow-hidden rounded-3xl border border-ink/8 bg-paper/80 p-4">
+			<article class="group flex h-full flex-col rounded-[1.6rem] border border-ink/8 bg-surface/90 p-4 shadow-sm shadow-black/5 transition duration-300 hover:-translate-y-1 hover:border-gold-main/30 hover:shadow-lg hover:shadow-black/8 sm:rounded-[1.75rem] sm:p-6">
+				<div class="relative overflow-hidden rounded-3xl border border-ink/8 bg-paper/80 p-3.5 sm:p-4">
 					<div class="absolute inset-0 bg-linear-to-br from-gold-main/18 via-transparent to-violet-soft/18 opacity-80"></div>
-					<div class="relative rounded-[1.4rem] border border-ink/8 bg-surface/90 p-4 shadow-lg shadow-black/8">
+					<div class="relative rounded-[1.2rem] border border-ink/8 bg-surface/90 p-3.5 shadow-lg shadow-black/8 sm:rounded-[1.4rem] sm:p-4">
 						<div class="flex items-center justify-between text-[11px] uppercase tracking-[0.22em] text-ink/45">
 							<span>{project.category}</span>
 							<span>{String(index + 1).padStart(2, '0')}</span>
@@ -28,28 +41,28 @@ import SectionIntro from '../../ui/SectionIntro.astro';
 						</div>
 					</div>
 				</div>
-				<div class="flex items-center justify-between">
+				<div class="mt-4 flex items-center justify-between sm:mt-5">
 					<span class="rounded-full border border-gold-main/30 bg-gold-main/10 px-3 py-1 text-xs uppercase tracking-[0.24em] text-violet-deep">
 						{project.status}
 					</span>
 					<span class="text-ink/35 transition group-hover:text-gold-main">{project.category}</span>
 				</div>
-				<h3 class="mt-6 text-2xl font-semibold text-ink">{project.title}</h3>
-				<p class="mt-4 leading-7 text-ink/72">{project.description}</p>
+				<h3 class="mt-5 text-xl font-semibold text-ink sm:mt-6 sm:text-2xl">{project.title}</h3>
+				<p class="mt-3.5 text-sm leading-6 text-ink/72 sm:mt-4 sm:text-base sm:leading-7">{project.description}</p>
 				<p class="mt-4 rounded-2xl border border-ink/8 bg-paper/80 px-4 py-3 text-sm leading-6 text-ink/72">
 					{project.outcome}
 				</p>
-				<div class="mt-6 flex flex-wrap gap-2">
+				<div class="mt-5 flex flex-wrap gap-2 sm:mt-6">
 					{project.stack.map((item) => (
 						<span class="rounded-full border border-violet-main/18 bg-violet-soft/35 px-3 py-1 text-sm text-violet-deep">{item}</span>
 					))}
 				</div>
-				<div class="mt-6 flex gap-3">
+				<div class="mt-5 grid gap-2.5 sm:mt-6 sm:flex sm:gap-3">
 					<a
 						href={project.liveUrl}
 						target="_blank"
 						rel="noreferrer"
-						class="rounded-full bg-gold-main px-4 py-2 text-sm font-semibold text-ink transition hover:bg-gold-soft"
+						class="inline-flex w-full justify-center rounded-full bg-gold-main px-4 py-2 text-sm font-semibold text-ink transition hover:bg-gold-soft sm:w-auto"
 					>
 						Ver proyecto
 					</a>
@@ -57,9 +70,9 @@ import SectionIntro from '../../ui/SectionIntro.astro';
 						href={project.repoUrl}
 						target="_blank"
 						rel="noreferrer"
-						class="rounded-full border border-ink/10 bg-paper px-4 py-2 text-sm font-semibold text-ink transition hover:border-gold-main/35 hover:bg-surface"
+						class="inline-flex w-full justify-center rounded-full border border-ink/10 bg-paper px-4 py-2 text-sm font-semibold text-ink transition hover:border-gold-main/35 hover:bg-surface sm:w-auto"
 					>
-						Ver codigo
+						Ver código
 					</a>
 				</div>
 			</article>

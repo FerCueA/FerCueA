@@ -16,6 +16,14 @@ export interface ViewState {
 	labelsById: Map<string, string>;
 }
 
+function prefersReducedMotion(): boolean {
+	return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function isSmallViewport(): boolean {
+	return window.matchMedia('(max-width: 640px)').matches;
+}
+
 /**
  * Initialize view state by collecting DOM references
  */
@@ -94,8 +102,9 @@ export function setOpenStateClasses(state: ViewState, isOpen: boolean): void {
  * Update the view to show a specific panel
  */
 export function updateView(state: ViewState, targetId = ''): void {
-	const { menuButtons, panels, stage, activeLabel, labelsById } = state;
+	const { menuButtons, panels, hub, stage, activeLabel, labelsById } = state;
 	const isOpen = targetId.length > 0;
+	const wasOpen = hub?.classList.contains('is-open') ?? false;
 
 	// Update menu button states
 	menuButtons.forEach((button) => setMenuButtonState(button, button.dataset.target === targetId));
@@ -113,9 +122,9 @@ export function updateView(state: ViewState, targetId = ''): void {
 		activeLabel.textContent = isOpen ? labelsById.get(targetId) ?? 'Seccion' : 'Selecciona una sección';
 	}
 
-	// Scroll to view
-	if (isOpen) {
-		stage?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	// Keep hero stable in viewport when opening a section.
+	if (isOpen && !wasOpen) {
+		hub?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
 	}
 }
 
@@ -124,6 +133,11 @@ export function updateView(state: ViewState, targetId = ''): void {
  * Falls back to direct execution if API is unavailable
  */
 export function runWithTransition(callback: () => void): void {
+	if (prefersReducedMotion() || isSmallViewport()) {
+		callback();
+		return;
+	}
+
 	if ('startViewTransition' in document) {
 		(document as any).startViewTransition(callback);
 		return;

@@ -2,6 +2,8 @@
 import { skillGroups } from '../../../data/portfolio';
 import SectionIntro from '../../ui/SectionIntro.astro';
 
+const totalItems = skillGroups.reduce((acc, group) => acc + group.items.length, 0);
+
 const iconPaths = {
 	code: 'M8 8l-4 4 4 4M16 8l4 4-4 4M13 5l-2 14',
 	cloud: 'M7 18h9a4 4 0 0 0 .4-8A5.5 5.5 0 0 0 6 9.5 4.5 4.5 0 0 0 7 18Z',
@@ -10,35 +12,54 @@ const iconPaths = {
 } as const;
 ---
 
-<section id="tecnologias" class="py-12 lg:py-16">
-	<div class="rounded-4xl border border-ink/8 bg-surface/88 p-8 shadow-sm shadow-black/5 backdrop-blur-xl">
-		<SectionIntro
-			kicker="Tecnologias"
-			title="Stack, plataformas y herramientas"
-			description="Este bloque resume la base tecnica y las herramientas con las que desarrollo, despliego y mantengo proyectos web con criterio profesional." 
-		/>
-		<div class="grid gap-5 lg:grid-cols-2">
-			{skillGroups.map((group) => (
-				<div class="rounded-3xl border border-ink/8 bg-paper/85 p-6">
-					<div class="flex items-center gap-4">
-						<div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-gold-main/20 bg-gold-main/10 text-gold-soft">
+<section id="tecnologias" class="py-10 sm:py-12 lg:py-16">
+	<div class="rounded-4xl border border-ink/8 bg-surface/90 p-5 shadow-sm shadow-black/5 sm:bg-surface/88 sm:p-8 sm:backdrop-blur-xl">
+		<div class="mb-6 flex flex-col gap-4 sm:mb-8 sm:gap-5 lg:flex-row lg:items-end lg:justify-between">
+			<div class="lg:max-w-3xl">
+				<SectionIntro
+					kicker="Tecnologías"
+					title="Stack, plataformas y herramientas"
+					description="Bloques organizados para mostrar con claridad el stack principal y el ecosistema de trabajo que uso en proyectos reales."
+				/>
+			</div>
+			<div class="flex flex-wrap items-center gap-2.5 sm:gap-3 lg:pb-8">
+				<span class="rounded-full border border-gold-main/20 bg-gold-main/10 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-violet-deep sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.22em]">
+					{skillGroups.length} bloques
+				</span>
+				<span class="rounded-full border border-violet-main/20 bg-violet-soft/35 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-violet-deep sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.22em]">
+					{totalItems} herramientas
+				</span>
+			</div>
+		</div>
+
+		<div class="grid gap-4 sm:gap-5 lg:grid-cols-12">
+			{skillGroups.map((group, index) => (
+				<article
+					class:list={[
+						'rounded-3xl border border-ink/8 bg-paper/85 p-4 sm:p-6',
+						index === 0 || index === 3 ? 'lg:col-span-7' : 'lg:col-span-5',
+					]}
+				>
+					<div class="flex items-start gap-4">
+						<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-gold-main/20 bg-gold-main/10 text-gold-soft">
 							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="h-6 w-6">
 								<path d={iconPaths[group.icon]} stroke-linecap="round" stroke-linejoin="round"></path>
 							</svg>
 						</div>
 						<div>
-							<p class="text-sm uppercase tracking-[0.22em] text-gold-soft">{group.title}</p>
+							<p class="text-[0.72rem] uppercase tracking-[0.16em] text-gold-soft sm:text-sm sm:tracking-[0.22em]">{group.title}</p>
 							<p class="mt-1 text-sm leading-6 text-ink/60">{group.description}</p>
 						</div>
 					</div>
-					<div class="mt-4 flex flex-wrap gap-3">
+
+					<ul class="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3">
 						{group.items.map((item) => (
-							<span class="rounded-full border border-violet-main/14 bg-violet-soft/40 px-4 py-2 text-sm font-medium text-violet-deep">
+							<li class="rounded-2xl border border-violet-main/14 bg-violet-soft/38 px-3 py-2 text-sm font-medium text-violet-deep sm:px-3.5">
 								{item}
-							</span>
+							</li>
 						))}
-					</div>
-				</div>
+					</ul>
+				</article>
 			))}
 		</div>
 	</div>
