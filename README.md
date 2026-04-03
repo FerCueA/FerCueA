@@ -1,4 +1,4 @@
-# Aleixo Fdez Cuevas
+# Aleixo Fernández Cuevas
 
 Desarrollador web centrado en crear proyectos **funcionales, limpios y bien estructurados**. En este perfil comparto trabajos personales, experimentos y aplicaciones orientadas a resolver problemas reales con una experiencia de usuario cuidada.
 
