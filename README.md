@@ -35,10 +35,10 @@ Proyecto web desarrollado con Astro.
 - HTML
 - CSS
 - JavaScript
+- Java
 
 ##  Contacto
 
 - Web: [aleixofdezcuevas.es](https://aleixofdezcuevas.es/)
 - GitHub: [github.com/FerCueA](https://github.com/FerCueA)
 
-Si te interesa colaborar en algún proyecto, no dudes en escribirme.
