@@ -12,7 +12,7 @@ Me interesa especialmente el desarrollo **frontend** y la creación de sitios y 
 - la mantenibilidad
 
 
-##  Portfolio
+## Portfolio
 
 Puedes ver más sobre mi trabajo en:
 
@@ -29,14 +29,14 @@ Aplicación web orientada a la gestión de servicios y ofertas de empleo.
 ### [AlvaroG](https://github.com/FerCueA/AlvaroG)
 Proyecto web desarrollado con Astro.
 
-## 🛠 Tecnologías
+## Tecnologías
 
 - Astro
 - HTML
 - CSS
 - JavaScript
 
-##  Contacto
+## Contacto
 
 - Web: [aleixofdezcuevas.es](https://aleixofdezcuevas.es/)
 - GitHub: [github.com/FerCueA](https://github.com/FerCueA)
