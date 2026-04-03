@@ -1,38 +1,44 @@
 # Aleixo Fdez Cuevas
 
-Desarrollador web enfocado en crear proyectos funcionales, limpios y bien estructurados. En este perfil comparto trabajos personales, experimentos y aplicaciones orientadas a resolver problemas reales.
+Desarrollador web centrado en crear proyectos **funcionales, limpios y bien estructurados**. En este perfil comparto trabajos personales, experimentos y aplicaciones orientadas a resolver problemas reales con una experiencia de usuario cuidada.
 
-## Sobre mi
+## Sobre mí
 
-Me interesa especialmente el desarrollo frontend y la construccion de sitios y aplicaciones web con buena experiencia de usuario. Disfruto aprendiendo nuevas herramientas y mejorando cada proyecto en rendimiento, organizacion del codigo y mantenibilidad.
+Me interesa especialmente el desarrollo **frontend** y la creación de sitios y aplicaciones web enfocadas en:
 
-## Portfolio
+- una buena experiencia de usuario
+- el rendimiento
+- la organización del código
+- la mantenibilidad
 
-Puedes ver mis proyectos y trabajo en:
+
+##  Portfolio
+
+Puedes ver más sobre mi trabajo en:
 
 [aleixofdezcuevas.es](https://aleixofdezcuevas.es/)
 
 ## Proyectos destacados
 
 ### [FerCueAstro](https://github.com/FerCueA/FerCueAstro)
-Codigo fuente de mi sitio personal desarrollado con Astro.
+Código fuente de mi sitio personal desarrollado con Astro.
 
 ### [Duit](https://github.com/FerCueA/Duit)
-Aplicacion web orientada a la gestion de servicios y ofertas de empleo.
+Aplicación web orientada a la gestión de servicios y ofertas de empleo.
 
 ### [AlvaroG](https://github.com/FerCueA/AlvaroG)
 Proyecto web desarrollado con Astro.
 
-## Tecnologias
+## 🛠 Tecnologías
 
 - Astro
 - HTML
 - CSS
 - JavaScript
 
-## Contacto
+##  Contacto
 
 - Web: [aleixofdezcuevas.es](https://aleixofdezcuevas.es/)
 - GitHub: [github.com/FerCueA](https://github.com/FerCueA)
 
-Si te interesa colaborar en algun proyecto, puedes escribirme.
+Si te interesa colaborar en algún proyecto, no dudes en escribirme.
