@@ -29,7 +29,7 @@ Aplicación web orientada a la gestión de servicios y ofertas de empleo.
 ### [AlvaroG](https://github.com/FerCueA/AlvaroG)
 Proyecto web desarrollado con Astro.
 
-## 🛠 Tecnologías
+## Tecnologías
 
 - Astro
 - HTML
